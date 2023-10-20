@@ -1,0 +1,23 @@
+﻿using CarRental.Entities;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CarRental.Data
+{
+    public class CarRentalContext : DbContext
+    {
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(AppSetting.ConnectionString);
+        }
+
+        public DbSet<AppUserEntity> AppUsers { get; set; } = null!;
+        public DbSet<BookingNoteEntity> BookingNotes{ get; set; } = null!;
+        public DbSet<CarEntity> Cars { get; set; } = null!;
+        public DbSet<CustomerEntity> Customers { get; set; } = null!;
+    }
+}
