@@ -12,6 +12,5 @@ namespace CarRental.Entities
         public string NameCode { get; set; } = null!;
         public CarType CarType { get; set; }
         public string Brand { get; set; } = null!;
-
     }
 }

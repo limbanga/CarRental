@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             menuStrip1 = new MenuStrip();
             carToolStripMenuItem = new ToolStripMenuItem();
             customerToolStripMenuItem = new ToolStripMenuItem();
@@ -74,8 +75,10 @@
             ClientSize = new Size(1118, 602);
             Controls.Add(panel1);
             Controls.Add(menuStrip1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
             Name = "MainForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "CarRental";
             Load += MainForm_Load;
             menuStrip1.ResumeLayout(false);
