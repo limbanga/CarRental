@@ -30,28 +30,22 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             menuStrip1 = new MenuStrip();
-            carToolStripMenuItem = new ToolStripMenuItem();
             customerToolStripMenuItem = new ToolStripMenuItem();
+            carToolStripMenuItem = new ToolStripMenuItem();
             panel1 = new Panel();
+            bookingNoteToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { carToolStripMenuItem, customerToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { carToolStripMenuItem, customerToolStripMenuItem, bookingNoteToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1118, 28);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
-            // 
-            // carToolStripMenuItem
-            // 
-            carToolStripMenuItem.Name = "carToolStripMenuItem";
-            carToolStripMenuItem.Size = new Size(45, 24);
-            carToolStripMenuItem.Text = "Car";
-            carToolStripMenuItem.Click += carToolStripMenuItem_Click;
             // 
             // customerToolStripMenuItem
             // 
@@ -60,6 +54,13 @@
             customerToolStripMenuItem.Text = "Customer";
             customerToolStripMenuItem.Click += customerToolStripMenuItem_Click;
             // 
+            // carToolStripMenuItem
+            // 
+            carToolStripMenuItem.Name = "carToolStripMenuItem";
+            carToolStripMenuItem.Size = new Size(45, 24);
+            carToolStripMenuItem.Text = "Car";
+            carToolStripMenuItem.Click += carToolStripMenuItem_Click;
+            // 
             // panel1
             // 
             panel1.Dock = DockStyle.Fill;
@@ -67,6 +68,12 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1118, 574);
             panel1.TabIndex = 1;
+            // 
+            // bookingNoteToolStripMenuItem
+            // 
+            bookingNoteToolStripMenuItem.Name = "bookingNoteToolStripMenuItem";
+            bookingNoteToolStripMenuItem.Size = new Size(111, 24);
+            bookingNoteToolStripMenuItem.Text = "BookingNote";
             // 
             // MainForm
             // 
@@ -93,5 +100,6 @@
         private ToolStripMenuItem carToolStripMenuItem;
         private Panel panel1;
         private ToolStripMenuItem customerToolStripMenuItem;
+        private ToolStripMenuItem bookingNoteToolStripMenuItem;
     }
 }

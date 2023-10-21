@@ -21,6 +21,10 @@ namespace CarRental.Forms.Car
             _context = context;
         }
 
+        //------------------------------------------------------------
+        // event
+        //------------------------------------------------------------
+
         private void ListCarForm_Load(object sender, EventArgs e)
         {
             loadCarList();
@@ -68,7 +72,6 @@ namespace CarRental.Forms.Car
         {
             dataGridView1.DataSource = _context.Cars.ToList();
         }
-
 
     }
 }

@@ -52,9 +52,6 @@ namespace CarRental.Forms.Car
                 }
                 else
                 {
-                    //carEntity.NameCode = entity.NameCode;
-                    //carEntity.Brand = entity.Brand;
-                    //carEntity.CarType = entity.CarType;
                     getInput(carEntity);
                     updateCar(carEntity);
                 }

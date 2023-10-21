@@ -24,7 +24,7 @@ namespace CarRental
 
         private void customerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            loadForm(new ListCustomerForm());
+            loadForm(new ListCustomerForm(_context));
         }
 
         //---------------------------------------------------------
