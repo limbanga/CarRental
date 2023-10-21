@@ -1,4 +1,5 @@
 using CarRental.Data;
+using CarRental.Forms.Auth;
 using CarRental.Forms.Car;
 using CarRental.Forms.Customer;
 
@@ -12,9 +13,19 @@ namespace CarRental
             InitializeComponent();
             _context = new CarRentalContext();
         }
+
+        //---------------------------------------------------------
+        // event
+        //---------------------------------------------------------
+        
         private void MainForm_Load(object sender, EventArgs e)
         {
+            LoginForm form = new LoginForm(_context);  
+            form.ShowDialog();
+            Hide();
+
             loadForm(new ListCarForm(_context));
+            Show();
         }
 
         private void carToolStripMenuItem_Click(object sender, EventArgs e)
