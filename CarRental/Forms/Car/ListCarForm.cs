@@ -48,7 +48,7 @@ namespace CarRental.Forms.Car
 
             if (dataGridView1.Columns[e.ColumnIndex].Name.Equals("Remove"))
             {
-                DialogResult = MessageBox.Show($"Do you want to remove { entity.NameCode }", "Confirm",
+                DialogResult = MessageBox.Show($"Do you want to remove {entity.NameCode}", "Confirm",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (DialogResult == DialogResult.Yes)
                 {

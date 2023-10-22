@@ -34,19 +34,22 @@
             label1 = new Label();
             label2 = new Label();
             carComboBox = new ComboBox();
+            carEntityBindingSource = new BindingSource(components);
             groupBox1 = new GroupBox();
-            checkBox12 = new CheckBox();
-            checkBox11 = new CheckBox();
-            checkBox10 = new CheckBox();
-            checkBox9 = new CheckBox();
-            checkBox8 = new CheckBox();
-            checkBox7 = new CheckBox();
-            checkBox6 = new CheckBox();
-            checkBox5 = new CheckBox();
-            checkBox4 = new CheckBox();
-            checkBox3 = new CheckBox();
-            checkBox2 = new CheckBox();
-            checkBox1 = new CheckBox();
+            SpeedWarningKitCheckBox = new CheckBox();
+            reversingCameraCheckBox = new CheckBox();
+            gPSCheckBox = new CheckBox();
+            spareTireCheckBox = new CheckBox();
+            dashCamCheckBox = new CheckBox();
+            blueToothCheckBox = new CheckBox();
+            camera360CheckBox = new CheckBox();
+            pickupTruckTrunkCoverCheckBox = new CheckBox();
+            uSBCheckBox = new CheckBox();
+            sunroofCheckBox = new CheckBox();
+            collisionSensorCheckBox = new CheckBox();
+            tireSensorCheckBox = new CheckBox();
+            marginalCameraCheckBox = new CheckBox();
+            mapCheckBox = new CheckBox();
             rentAtDateTimePicker = new DateTimePicker();
             label3 = new Label();
             label4 = new Label();
@@ -58,7 +61,9 @@
             radioButton1 = new RadioButton();
             button1 = new Button();
             label5 = new Label();
+            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)customerEntityBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)carEntityBindingSource).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             SuspendLayout();
@@ -100,153 +105,182 @@
             // 
             // carComboBox
             // 
+            carComboBox.DataSource = carEntityBindingSource;
+            carComboBox.DisplayMember = "NameCode";
             carComboBox.FormattingEnabled = true;
             carComboBox.Location = new Point(493, 41);
             carComboBox.Name = "carComboBox";
             carComboBox.Size = new Size(238, 28);
             carComboBox.TabIndex = 2;
+            carComboBox.ValueMember = "Id";
+            // 
+            // carEntityBindingSource
+            // 
+            carEntityBindingSource.DataSource = typeof(Entities.CarEntity);
             // 
             // groupBox1
             // 
-            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            groupBox1.Controls.Add(checkBox12);
-            groupBox1.Controls.Add(checkBox11);
-            groupBox1.Controls.Add(checkBox10);
-            groupBox1.Controls.Add(checkBox9);
-            groupBox1.Controls.Add(checkBox8);
-            groupBox1.Controls.Add(checkBox7);
-            groupBox1.Controls.Add(checkBox6);
-            groupBox1.Controls.Add(checkBox5);
-            groupBox1.Controls.Add(checkBox4);
-            groupBox1.Controls.Add(checkBox3);
-            groupBox1.Controls.Add(checkBox2);
-            groupBox1.Controls.Add(checkBox1);
-            groupBox1.Location = new Point(23, 176);
+            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox1.Controls.Add(SpeedWarningKitCheckBox);
+            groupBox1.Controls.Add(reversingCameraCheckBox);
+            groupBox1.Controls.Add(gPSCheckBox);
+            groupBox1.Controls.Add(spareTireCheckBox);
+            groupBox1.Controls.Add(dashCamCheckBox);
+            groupBox1.Controls.Add(blueToothCheckBox);
+            groupBox1.Controls.Add(camera360CheckBox);
+            groupBox1.Controls.Add(pickupTruckTrunkCoverCheckBox);
+            groupBox1.Controls.Add(uSBCheckBox);
+            groupBox1.Controls.Add(sunroofCheckBox);
+            groupBox1.Controls.Add(collisionSensorCheckBox);
+            groupBox1.Controls.Add(tireSensorCheckBox);
+            groupBox1.Controls.Add(marginalCameraCheckBox);
+            groupBox1.Controls.Add(mapCheckBox);
+            groupBox1.Location = new Point(23, 192);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(708, 176);
+            groupBox1.Size = new Size(708, 211);
             groupBox1.TabIndex = 4;
             groupBox1.TabStop = false;
             groupBox1.Text = "Feature";
             // 
-            // checkBox12
+            // SpeedWarningKitCheckBox
             // 
-            checkBox12.AutoSize = true;
-            checkBox12.Location = new Point(453, 35);
-            checkBox12.Name = "checkBox12";
-            checkBox12.Size = new Size(61, 24);
-            checkBox12.TabIndex = 11;
-            checkBox12.Text = "map";
-            checkBox12.UseVisualStyleBackColor = true;
+            SpeedWarningKitCheckBox.AutoSize = true;
+            SpeedWarningKitCheckBox.Location = new Point(193, 166);
+            SpeedWarningKitCheckBox.Name = "SpeedWarningKitCheckBox";
+            SpeedWarningKitCheckBox.Size = new Size(154, 24);
+            SpeedWarningKitCheckBox.TabIndex = 14;
+            SpeedWarningKitCheckBox.Text = "Speed Warning Kit";
+            SpeedWarningKitCheckBox.UseVisualStyleBackColor = true;
             // 
-            // checkBox11
+            // reversingCameraCheckBox
             // 
-            checkBox11.AutoSize = true;
-            checkBox11.Location = new Point(453, 79);
-            checkBox11.Name = "checkBox11";
-            checkBox11.Size = new Size(61, 24);
-            checkBox11.TabIndex = 10;
-            checkBox11.Text = "map";
-            checkBox11.UseVisualStyleBackColor = true;
+            reversingCameraCheckBox.AutoSize = true;
+            reversingCameraCheckBox.Location = new Point(15, 166);
+            reversingCameraCheckBox.Name = "reversingCameraCheckBox";
+            reversingCameraCheckBox.Size = new Size(148, 24);
+            reversingCameraCheckBox.TabIndex = 12;
+            reversingCameraCheckBox.Text = "Reversing camera";
+            reversingCameraCheckBox.UseVisualStyleBackColor = true;
             // 
-            // checkBox10
+            // gPSCheckBox
             // 
-            checkBox10.AutoSize = true;
-            checkBox10.Location = new Point(313, 79);
-            checkBox10.Name = "checkBox10";
-            checkBox10.Size = new Size(61, 24);
-            checkBox10.TabIndex = 9;
-            checkBox10.Text = "map";
-            checkBox10.UseVisualStyleBackColor = true;
+            gPSCheckBox.AutoSize = true;
+            gPSCheckBox.Location = new Point(568, 35);
+            gPSCheckBox.Name = "gPSCheckBox";
+            gPSCheckBox.Size = new Size(57, 24);
+            gPSCheckBox.TabIndex = 11;
+            gPSCheckBox.Text = "GPS";
+            gPSCheckBox.UseVisualStyleBackColor = true;
             // 
-            // checkBox9
+            // spareTireCheckBox
             // 
-            checkBox9.AutoSize = true;
-            checkBox9.Location = new Point(313, 35);
-            checkBox9.Name = "checkBox9";
-            checkBox9.Size = new Size(61, 24);
-            checkBox9.TabIndex = 8;
-            checkBox9.Text = "map";
-            checkBox9.UseVisualStyleBackColor = true;
+            spareTireCheckBox.AutoSize = true;
+            spareTireCheckBox.Location = new Point(568, 79);
+            spareTireCheckBox.Name = "spareTireCheckBox";
+            spareTireCheckBox.Size = new Size(101, 24);
+            spareTireCheckBox.TabIndex = 10;
+            spareTireCheckBox.Text = "Spare tires";
+            spareTireCheckBox.UseVisualStyleBackColor = true;
             // 
-            // checkBox8
+            // dashCamCheckBox
             // 
-            checkBox8.AutoSize = true;
-            checkBox8.Location = new Point(453, 120);
-            checkBox8.Name = "checkBox8";
-            checkBox8.Size = new Size(61, 24);
-            checkBox8.TabIndex = 7;
-            checkBox8.Text = "map";
-            checkBox8.UseVisualStyleBackColor = true;
+            dashCamCheckBox.AutoSize = true;
+            dashCamCheckBox.Location = new Point(395, 79);
+            dashCamCheckBox.Name = "dashCamCheckBox";
+            dashCamCheckBox.Size = new Size(92, 24);
+            dashCamCheckBox.TabIndex = 9;
+            dashCamCheckBox.Text = "Dashcam";
+            dashCamCheckBox.UseVisualStyleBackColor = true;
             // 
-            // checkBox7
+            // blueToothCheckBox
             // 
-            checkBox7.AutoSize = true;
-            checkBox7.Location = new Point(159, 120);
-            checkBox7.Name = "checkBox7";
-            checkBox7.Size = new Size(61, 24);
-            checkBox7.TabIndex = 6;
-            checkBox7.Text = "map";
-            checkBox7.UseVisualStyleBackColor = true;
+            blueToothCheckBox.AutoSize = true;
+            blueToothCheckBox.Location = new Point(395, 35);
+            blueToothCheckBox.Name = "blueToothCheckBox";
+            blueToothCheckBox.Size = new Size(96, 24);
+            blueToothCheckBox.TabIndex = 8;
+            blueToothCheckBox.Text = "Bluetooth";
+            blueToothCheckBox.UseVisualStyleBackColor = true;
             // 
-            // checkBox6
+            // camera360CheckBox
             // 
-            checkBox6.AutoSize = true;
-            checkBox6.Location = new Point(159, 79);
-            checkBox6.Name = "checkBox6";
-            checkBox6.Size = new Size(61, 24);
-            checkBox6.TabIndex = 5;
-            checkBox6.Text = "map";
-            checkBox6.UseVisualStyleBackColor = true;
+            camera360CheckBox.AutoSize = true;
+            camera360CheckBox.Location = new Point(568, 120);
+            camera360CheckBox.Name = "camera360CheckBox";
+            camera360CheckBox.Size = new Size(110, 24);
+            camera360CheckBox.TabIndex = 7;
+            camera360CheckBox.Text = "Camera 360";
+            camera360CheckBox.UseVisualStyleBackColor = true;
             // 
-            // checkBox5
+            // pickupTruckTrunkCoverCheckBox
             // 
-            checkBox5.AutoSize = true;
-            checkBox5.Location = new Point(159, 35);
-            checkBox5.Name = "checkBox5";
-            checkBox5.Size = new Size(61, 24);
-            checkBox5.TabIndex = 4;
-            checkBox5.Text = "map";
-            checkBox5.UseVisualStyleBackColor = true;
+            pickupTruckTrunkCoverCheckBox.AutoSize = true;
+            pickupTruckTrunkCoverCheckBox.Location = new Point(193, 120);
+            pickupTruckTrunkCoverCheckBox.Name = "pickupTruckTrunkCoverCheckBox";
+            pickupTruckTrunkCoverCheckBox.Size = new Size(187, 24);
+            pickupTruckTrunkCoverCheckBox.TabIndex = 6;
+            pickupTruckTrunkCoverCheckBox.Text = "Pickup truck trunk cover";
+            pickupTruckTrunkCoverCheckBox.UseVisualStyleBackColor = true;
             // 
-            // checkBox4
+            // uSBCheckBox
             // 
-            checkBox4.AutoSize = true;
-            checkBox4.Location = new Point(314, 120);
-            checkBox4.Name = "checkBox4";
-            checkBox4.Size = new Size(61, 24);
-            checkBox4.TabIndex = 3;
-            checkBox4.Text = "map";
-            checkBox4.UseVisualStyleBackColor = true;
+            uSBCheckBox.AutoSize = true;
+            uSBCheckBox.Location = new Point(193, 79);
+            uSBCheckBox.Name = "uSBCheckBox";
+            uSBCheckBox.Size = new Size(58, 24);
+            uSBCheckBox.TabIndex = 5;
+            uSBCheckBox.Text = "USB";
+            uSBCheckBox.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // sunroofCheckBox
             // 
-            checkBox3.AutoSize = true;
-            checkBox3.Location = new Point(15, 120);
-            checkBox3.Name = "checkBox3";
-            checkBox3.Size = new Size(61, 24);
-            checkBox3.TabIndex = 2;
-            checkBox3.Text = "map";
-            checkBox3.UseVisualStyleBackColor = true;
+            sunroofCheckBox.AutoSize = true;
+            sunroofCheckBox.Location = new Point(193, 35);
+            sunroofCheckBox.Name = "sunroofCheckBox";
+            sunroofCheckBox.Size = new Size(83, 24);
+            sunroofCheckBox.TabIndex = 4;
+            sunroofCheckBox.Text = "Sunroof";
+            sunroofCheckBox.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // collisionSensorCheckBox
             // 
-            checkBox2.AutoSize = true;
-            checkBox2.Location = new Point(15, 79);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Size = new Size(61, 24);
-            checkBox2.TabIndex = 1;
-            checkBox2.Text = "map";
-            checkBox2.UseVisualStyleBackColor = true;
+            collisionSensorCheckBox.AutoSize = true;
+            collisionSensorCheckBox.Location = new Point(395, 120);
+            collisionSensorCheckBox.Name = "collisionSensorCheckBox";
+            collisionSensorCheckBox.Size = new Size(134, 24);
+            collisionSensorCheckBox.TabIndex = 3;
+            collisionSensorCheckBox.Text = "Collision sensor";
+            collisionSensorCheckBox.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // tireSensorCheckBox
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(15, 35);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(61, 24);
-            checkBox1.TabIndex = 0;
-            checkBox1.Text = "map";
-            checkBox1.UseVisualStyleBackColor = true;
+            tireSensorCheckBox.AutoSize = true;
+            tireSensorCheckBox.Location = new Point(15, 120);
+            tireSensorCheckBox.Name = "tireSensorCheckBox";
+            tireSensorCheckBox.Size = new Size(102, 24);
+            tireSensorCheckBox.TabIndex = 2;
+            tireSensorCheckBox.Text = "Tire sensor";
+            tireSensorCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // marginalCameraCheckBox
+            // 
+            marginalCameraCheckBox.AutoSize = true;
+            marginalCameraCheckBox.Location = new Point(15, 79);
+            marginalCameraCheckBox.Name = "marginalCameraCheckBox";
+            marginalCameraCheckBox.Size = new Size(143, 24);
+            marginalCameraCheckBox.TabIndex = 1;
+            marginalCameraCheckBox.Text = "Marginal camera";
+            marginalCameraCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // mapCheckBox
+            // 
+            mapCheckBox.AutoSize = true;
+            mapCheckBox.Location = new Point(15, 35);
+            mapCheckBox.Name = "mapCheckBox";
+            mapCheckBox.Size = new Size(61, 24);
+            mapCheckBox.TabIndex = 0;
+            mapCheckBox.Text = "Map";
+            mapCheckBox.UseVisualStyleBackColor = true;
             // 
             // rentAtDateTimePicker
             // 
@@ -283,11 +317,12 @@
             // 
             // groupBox2
             // 
+            groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             groupBox2.Controls.Add(radioButton4);
             groupBox2.Controls.Add(radioButton3);
             groupBox2.Controls.Add(radioButton2);
             groupBox2.Controls.Add(radioButton1);
-            groupBox2.Location = new Point(23, 358);
+            groupBox2.Location = new Point(23, 420);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(708, 66);
             groupBox2.TabIndex = 9;
@@ -298,34 +333,34 @@
             // radioButton4
             // 
             radioButton4.AutoSize = true;
-            radioButton4.Location = new Point(453, 26);
+            radioButton4.Location = new Point(568, 26);
             radioButton4.Name = "radioButton4";
-            radioButton4.Size = new Size(117, 24);
+            radioButton4.Size = new Size(94, 24);
             radioButton4.TabIndex = 3;
             radioButton4.TabStop = true;
-            radioButton4.Text = "radioButton4";
+            radioButton4.Text = "Electricity";
             radioButton4.UseVisualStyleBackColor = true;
             // 
             // radioButton3
             // 
             radioButton3.AutoSize = true;
-            radioButton3.Location = new Point(309, 26);
+            radioButton3.Location = new Point(393, 26);
             radioButton3.Name = "radioButton3";
-            radioButton3.Size = new Size(117, 24);
+            radioButton3.Size = new Size(71, 24);
             radioButton3.TabIndex = 2;
             radioButton3.TabStop = true;
-            radioButton3.Text = "radioButton3";
+            radioButton3.Text = "Diesel";
             radioButton3.UseVisualStyleBackColor = true;
             // 
             // radioButton2
             // 
             radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(159, 26);
+            radioButton2.Location = new Point(189, 26);
             radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(117, 24);
+            radioButton2.Size = new Size(87, 24);
             radioButton2.TabIndex = 1;
             radioButton2.TabStop = true;
-            radioButton2.Text = "radioButton2";
+            radioButton2.Text = "Gasoline";
             radioButton2.UseVisualStyleBackColor = true;
             // 
             // radioButton1
@@ -333,15 +368,16 @@
             radioButton1.AutoSize = true;
             radioButton1.Location = new Point(15, 26);
             radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(117, 24);
+            radioButton1.Size = new Size(48, 24);
             radioButton1.TabIndex = 0;
             radioButton1.TabStop = true;
-            radioButton1.Text = "radioButton1";
+            radioButton1.Text = "All";
             radioButton1.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
-            button1.Location = new Point(637, 444);
+            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            button1.Location = new Point(637, 512);
             button1.Name = "button1";
             button1.Size = new Size(94, 29);
             button1.TabIndex = 10;
@@ -350,18 +386,30 @@
             // 
             // label5
             // 
+            label5.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label5.AutoSize = true;
-            label5.Location = new Point(513, 450);
+            label5.Location = new Point(517, 516);
             label5.Name = "label5";
             label5.Size = new Size(89, 20);
             label5.TabIndex = 12;
             label5.Text = "Total: $3464";
             // 
+            // button2
+            // 
+            button2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button2.Location = new Point(637, 157);
+            button2.Name = "button2";
+            button2.Size = new Size(94, 29);
+            button2.TabIndex = 13;
+            button2.Text = "Clear fillter";
+            button2.UseVisualStyleBackColor = true;
+            // 
             // Add_UpdateBookingForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(754, 501);
+            ClientSize = new Size(754, 564);
+            Controls.Add(button2);
             Controls.Add(label5);
             Controls.Add(button1);
             Controls.Add(groupBox2);
@@ -380,6 +428,7 @@
             Text = "Add booking";
             Load += Add_UpdateBookingForm_Load;
             ((System.ComponentModel.ISupportInitialize)customerEntityBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)carEntityBindingSource).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
@@ -399,25 +448,29 @@
         private Label label3;
         private Label label4;
         private DateTimePicker returnAtDateTimePicker;
-        private CheckBox checkBox3;
-        private CheckBox checkBox2;
-        private CheckBox checkBox1;
-        private CheckBox checkBox10;
-        private CheckBox checkBox9;
-        private CheckBox checkBox8;
-        private CheckBox checkBox7;
-        private CheckBox checkBox6;
-        private CheckBox checkBox5;
-        private CheckBox checkBox4;
+        private CheckBox tireSensorCheckBox;
+        private CheckBox marginalCameraCheckBox;
+        private CheckBox mapCheckBox;
+        private CheckBox dashCamCheckBox;
+        private CheckBox blueToothCheckBox;
+        private CheckBox camera360CheckBox;
+        private CheckBox pickupTruckTrunkCoverCheckBox;
+        private CheckBox uSBCheckBox;
+        private CheckBox sunroofCheckBox;
+        private CheckBox collisionSensorCheckBox;
         private GroupBox groupBox2;
         private RadioButton radioButton4;
         private RadioButton radioButton3;
         private RadioButton radioButton2;
         private RadioButton radioButton1;
         private Button button1;
-        private CheckBox checkBox12;
-        private CheckBox checkBox11;
+        private CheckBox gPSCheckBox;
+        private CheckBox spareTireCheckBox;
         private Label label5;
         private BindingSource customerEntityBindingSource;
+        private BindingSource carEntityBindingSource;
+        private CheckBox SpeedWarningKitCheckBox;
+        private CheckBox reversingCameraCheckBox;
+        private Button button2;
     }
 }

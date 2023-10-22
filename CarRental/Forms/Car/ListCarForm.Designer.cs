@@ -37,6 +37,8 @@
             nameCodeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             carTypeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             brandDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            pricePerDayDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            PricePerDay = new DataGridViewTextBoxColumn();
             Remove = new DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)carEntityBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -52,7 +54,7 @@
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, nameCodeDataGridViewTextBoxColumn, carTypeDataGridViewTextBoxColumn, brandDataGridViewTextBoxColumn, Remove });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, nameCodeDataGridViewTextBoxColumn, carTypeDataGridViewTextBoxColumn, brandDataGridViewTextBoxColumn, pricePerDayDataGridViewTextBoxColumn, PricePerDay, Remove });
             dataGridView1.DataSource = carEntityBindingSource;
             dataGridView1.Location = new Point(23, 85);
             dataGridView1.Name = "dataGridView1";
@@ -76,7 +78,6 @@
             // idDataGridViewTextBoxColumn
             // 
             idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            idDataGridViewTextBoxColumn.FillWeight = 98.26203F;
             idDataGridViewTextBoxColumn.HeaderText = "Id";
             idDataGridViewTextBoxColumn.MinimumWidth = 6;
             idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
@@ -84,7 +85,6 @@
             // nameCodeDataGridViewTextBoxColumn
             // 
             nameCodeDataGridViewTextBoxColumn.DataPropertyName = "NameCode";
-            nameCodeDataGridViewTextBoxColumn.FillWeight = 98.26203F;
             nameCodeDataGridViewTextBoxColumn.HeaderText = "NameCode";
             nameCodeDataGridViewTextBoxColumn.MinimumWidth = 6;
             nameCodeDataGridViewTextBoxColumn.Name = "nameCodeDataGridViewTextBoxColumn";
@@ -92,7 +92,6 @@
             // carTypeDataGridViewTextBoxColumn
             // 
             carTypeDataGridViewTextBoxColumn.DataPropertyName = "CarType";
-            carTypeDataGridViewTextBoxColumn.FillWeight = 98.26203F;
             carTypeDataGridViewTextBoxColumn.HeaderText = "CarType";
             carTypeDataGridViewTextBoxColumn.MinimumWidth = 6;
             carTypeDataGridViewTextBoxColumn.Name = "carTypeDataGridViewTextBoxColumn";
@@ -100,10 +99,23 @@
             // brandDataGridViewTextBoxColumn
             // 
             brandDataGridViewTextBoxColumn.DataPropertyName = "Brand";
-            brandDataGridViewTextBoxColumn.FillWeight = 98.26203F;
             brandDataGridViewTextBoxColumn.HeaderText = "Brand";
             brandDataGridViewTextBoxColumn.MinimumWidth = 6;
             brandDataGridViewTextBoxColumn.Name = "brandDataGridViewTextBoxColumn";
+            // 
+            // pricePerDayDataGridViewTextBoxColumn
+            // 
+            pricePerDayDataGridViewTextBoxColumn.DataPropertyName = "PricePerDay";
+            pricePerDayDataGridViewTextBoxColumn.HeaderText = "PricePerDay";
+            pricePerDayDataGridViewTextBoxColumn.MinimumWidth = 6;
+            pricePerDayDataGridViewTextBoxColumn.Name = "pricePerDayDataGridViewTextBoxColumn";
+            // 
+            // PricePerDay
+            // 
+            PricePerDay.DataPropertyName = "PricePerDay";
+            PricePerDay.HeaderText = "PricePerDay";
+            PricePerDay.MinimumWidth = 6;
+            PricePerDay.Name = "PricePerDay";
             // 
             // Remove
             // 
@@ -140,6 +152,8 @@
         private DataGridViewTextBoxColumn nameCodeDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn carTypeDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn brandDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn pricePerDayDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn PricePerDay;
         private DataGridViewImageColumn Remove;
     }
 }

@@ -77,7 +77,24 @@ namespace CarRental.Forms.Car
         {
             nameCodeTextBox.Text = carEntity.NameCode;
             brandTextBox.Text = carEntity.Brand;
+            pricePerDayTextBox.Text = carEntity.PricePerDay.ToString();
             carTypeComboBox.SelectedItem = carEntity.CarType;
+
+
+            mapCheckBox.Checked = carEntity.Map;
+            marginalCameraCheckBox.Checked = carEntity.MarginalCamera;
+            tireSensorCheckBox.Checked = carEntity.TireSensor;
+            reversingCameraCheckBox.Checked = carEntity.ReversingCamera;
+            sunroofCheckBox.Checked = carEntity.Sunroof;
+            uSBCheckBox.Checked = carEntity.USB;
+            pickupTruckTrunkCoverCheckBox.Checked = carEntity.PickupTruckTrunkCover;
+            speedWarningKitCheckBox.Checked = carEntity.SpeedWarningKit;
+            blueToothCheckBox.Checked = carEntity.BlueTooth;
+            dashCamCheckBox.Checked = carEntity.DashCam;
+            collisionSensorCheckBox.Checked = carEntity.CollisionSensor;
+            gPSCheckBox.Checked = carEntity.GPS;
+            spareTireCheckBox.Checked = carEntity.SpareTire;
+            camera360CheckBox.Checked = carEntity.Camera360;
         }
 
         private void getInput(CarEntity entity)
@@ -92,9 +109,31 @@ namespace CarRental.Forms.Car
                 throw new ValidateException("Brand can't be blank.");
             }
 
+            double pricePerDay;
+            if (!Double.TryParse(pricePerDayTextBox.Text, out pricePerDay))
+            {
+                throw new ValidateException("Price per day must be number.");
+            }
+
             entity.NameCode = nameCodeTextBox.Text;
             entity.Brand = brandTextBox.Text;
+            entity.PricePerDay = (float) pricePerDay;
             entity.CarType = ((CarType)carTypeComboBox.SelectedValue);
+
+            entity.Map = mapCheckBox.Checked;
+            entity.MarginalCamera = marginalCameraCheckBox.Checked;
+            entity.TireSensor = tireSensorCheckBox.Checked;
+            entity.ReversingCamera = reversingCameraCheckBox.Checked;
+            entity.Sunroof = sunroofCheckBox.Checked;
+            entity.USB = uSBCheckBox.Checked;
+            entity.PickupTruckTrunkCover = pickupTruckTrunkCoverCheckBox.Checked;
+            entity.SpeedWarningKit = speedWarningKitCheckBox.Checked;
+            entity.BlueTooth = blueToothCheckBox.Checked;
+            entity.DashCam = dashCamCheckBox.Checked;
+            entity.CollisionSensor = collisionSensorCheckBox.Checked;
+            entity.GPS = gPSCheckBox.Checked;
+            entity.SpareTire = spareTireCheckBox.Checked;
+            entity.Camera360 = camera360CheckBox.Checked;
         }
 
         private void addCar(CarEntity entity)

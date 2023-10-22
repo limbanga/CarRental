@@ -28,6 +28,7 @@ namespace CarRental.Forms.Booking
         private void Add_UpdateBookingForm_Load(object sender, EventArgs e)
         {
             customerComboBox.DataSource = _context.Customers.ToList();
+            carComboBox.DataSource = _context.Cars.ToList();
         }
 
         private void label4_Click(object sender, EventArgs e)
