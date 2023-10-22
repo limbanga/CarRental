@@ -49,7 +49,7 @@ namespace CarRental.Forms.Auth
             }
 
             bool isVerified = BCrypt.Net.BCrypt.Verify(password, user.Password);
-            if (!isVerified) 
+            if (!isVerified)
             {
                 MessageBox.Show("Password is incorect.", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);

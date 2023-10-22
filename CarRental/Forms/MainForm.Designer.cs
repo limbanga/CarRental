@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             menuStrip1 = new MenuStrip();
-            customerToolStripMenuItem = new ToolStripMenuItem();
             carToolStripMenuItem = new ToolStripMenuItem();
-            panel1 = new Panel();
+            customerToolStripMenuItem = new ToolStripMenuItem();
             bookingNoteToolStripMenuItem = new ToolStripMenuItem();
+            panel1 = new Panel();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -47,6 +47,13 @@
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
+            // carToolStripMenuItem
+            // 
+            carToolStripMenuItem.Name = "carToolStripMenuItem";
+            carToolStripMenuItem.Size = new Size(45, 24);
+            carToolStripMenuItem.Text = "Car";
+            carToolStripMenuItem.Click += carToolStripMenuItem_Click;
+            // 
             // customerToolStripMenuItem
             // 
             customerToolStripMenuItem.Name = "customerToolStripMenuItem";
@@ -54,12 +61,12 @@
             customerToolStripMenuItem.Text = "Customer";
             customerToolStripMenuItem.Click += customerToolStripMenuItem_Click;
             // 
-            // carToolStripMenuItem
+            // bookingNoteToolStripMenuItem
             // 
-            carToolStripMenuItem.Name = "carToolStripMenuItem";
-            carToolStripMenuItem.Size = new Size(45, 24);
-            carToolStripMenuItem.Text = "Car";
-            carToolStripMenuItem.Click += carToolStripMenuItem_Click;
+            bookingNoteToolStripMenuItem.Name = "bookingNoteToolStripMenuItem";
+            bookingNoteToolStripMenuItem.Size = new Size(111, 24);
+            bookingNoteToolStripMenuItem.Text = "BookingNote";
+            bookingNoteToolStripMenuItem.Click += bookingNoteToolStripMenuItem_Click;
             // 
             // panel1
             // 
@@ -68,12 +75,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1118, 574);
             panel1.TabIndex = 1;
-            // 
-            // bookingNoteToolStripMenuItem
-            // 
-            bookingNoteToolStripMenuItem.Name = "bookingNoteToolStripMenuItem";
-            bookingNoteToolStripMenuItem.Size = new Size(111, 24);
-            bookingNoteToolStripMenuItem.Text = "BookingNote";
             // 
             // MainForm
             // 

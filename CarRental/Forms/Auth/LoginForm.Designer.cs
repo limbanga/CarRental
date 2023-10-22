@@ -51,6 +51,7 @@
             userNameTextBox.Name = "userNameTextBox";
             userNameTextBox.Size = new Size(172, 27);
             userNameTextBox.TabIndex = 1;
+            userNameTextBox.Text = "admin";
             // 
             // passwordTextBox
             // 
@@ -58,6 +59,7 @@
             passwordTextBox.Name = "passwordTextBox";
             passwordTextBox.Size = new Size(172, 27);
             passwordTextBox.TabIndex = 3;
+            passwordTextBox.Text = "admin";
             passwordTextBox.UseSystemPasswordChar = true;
             // 
             // label2

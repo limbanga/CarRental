@@ -13,5 +13,7 @@ namespace CarRental.Entities
         public string PhoneNumber { get; set; } = null!;
         public string Address { get; set; } = null!;
 
+        public string ComboboxDisplay => $"{PhoneNumber}-{Name}";
+
     }
 }

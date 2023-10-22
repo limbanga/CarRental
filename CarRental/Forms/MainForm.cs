@@ -1,5 +1,6 @@
 using CarRental.Data;
 using CarRental.Forms.Auth;
+using CarRental.Forms.Booking;
 using CarRental.Forms.Car;
 using CarRental.Forms.Customer;
 
@@ -17,10 +18,10 @@ namespace CarRental
         //---------------------------------------------------------
         // event
         //---------------------------------------------------------
-        
+
         private void MainForm_Load(object sender, EventArgs e)
         {
-            LoginForm form = new LoginForm(_context);  
+            LoginForm form = new LoginForm(_context);
             form.ShowDialog();
             Hide();
 
@@ -38,6 +39,11 @@ namespace CarRental
             loadForm(new ListCustomerForm(_context));
         }
 
+        private void bookingNoteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            loadForm(new ListBookingForm(_context));
+        }
+
         //---------------------------------------------------------
         // fun
         //---------------------------------------------------------
@@ -53,5 +59,7 @@ namespace CarRental
             panel1.Tag = form;
             form.Show();
         }
+
+
     }
 }

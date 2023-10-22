@@ -9,14 +9,15 @@ namespace CarRental.Entities
     public class BookingNoteEntity
     {
         public int Id { get; set; }
-        public int? UserId { get; set; }
-        public AppUserEntity? User { get; set; }
+        public int? CustomerId { get; set; }
+        public CustomerEntity? Customer { get; set; }
         public int? CarId { get; set; }
         public CarEntity? Car { get; set; }
         public DateTime RentAt { get; set; } = DateTime.Now;
         public DateTime ReturnAt { get; set; } = DateTime.Now;
         public DateTime RealReturnAt { get; set; } = DateTime.Now;
 
-        //public int TimeRent { get; set; }
+        public string UserName => Customer == null? "-": Customer.Name;
+        public string CarName => Car == null ? "-" : $"{Car.CarType} {Car.NameCode}";
     }
 }
