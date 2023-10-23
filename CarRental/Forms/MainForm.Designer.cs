@@ -33,14 +33,19 @@
             carToolStripMenuItem = new ToolStripMenuItem();
             customerToolStripMenuItem = new ToolStripMenuItem();
             bookingNoteToolStripMenuItem = new ToolStripMenuItem();
+            statisticToolStripMenuItem = new ToolStripMenuItem();
             panel1 = new Panel();
+            monthlyToolStripMenuItem = new ToolStripMenuItem();
+            dailyToolStripMenuItem = new ToolStripMenuItem();
+            yearlyToolStripMenuItem = new ToolStripMenuItem();
+            byCarToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { carToolStripMenuItem, customerToolStripMenuItem, bookingNoteToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { carToolStripMenuItem, customerToolStripMenuItem, bookingNoteToolStripMenuItem, statisticToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1118, 28);
@@ -68,6 +73,13 @@
             bookingNoteToolStripMenuItem.Text = "BookingNote";
             bookingNoteToolStripMenuItem.Click += bookingNoteToolStripMenuItem_Click;
             // 
+            // statisticToolStripMenuItem
+            // 
+            statisticToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { dailyToolStripMenuItem, monthlyToolStripMenuItem, yearlyToolStripMenuItem, byCarToolStripMenuItem });
+            statisticToolStripMenuItem.Name = "statisticToolStripMenuItem";
+            statisticToolStripMenuItem.Size = new Size(75, 24);
+            statisticToolStripMenuItem.Text = "Statistic";
+            // 
             // panel1
             // 
             panel1.Dock = DockStyle.Fill;
@@ -75,6 +87,30 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1118, 574);
             panel1.TabIndex = 1;
+            // 
+            // monthlyToolStripMenuItem
+            // 
+            monthlyToolStripMenuItem.Name = "monthlyToolStripMenuItem";
+            monthlyToolStripMenuItem.Size = new Size(146, 26);
+            monthlyToolStripMenuItem.Text = "Monthly";
+            // 
+            // dailyToolStripMenuItem
+            // 
+            dailyToolStripMenuItem.Name = "dailyToolStripMenuItem";
+            dailyToolStripMenuItem.Size = new Size(146, 26);
+            dailyToolStripMenuItem.Text = "Daily";
+            // 
+            // yearlyToolStripMenuItem
+            // 
+            yearlyToolStripMenuItem.Name = "yearlyToolStripMenuItem";
+            yearlyToolStripMenuItem.Size = new Size(146, 26);
+            yearlyToolStripMenuItem.Text = "Yearly";
+            // 
+            // byCarToolStripMenuItem
+            // 
+            byCarToolStripMenuItem.Name = "byCarToolStripMenuItem";
+            byCarToolStripMenuItem.Size = new Size(146, 26);
+            byCarToolStripMenuItem.Text = "By Car";
             // 
             // MainForm
             // 
@@ -102,5 +138,10 @@
         private Panel panel1;
         private ToolStripMenuItem customerToolStripMenuItem;
         private ToolStripMenuItem bookingNoteToolStripMenuItem;
+        private ToolStripMenuItem statisticToolStripMenuItem;
+        private ToolStripMenuItem dailyToolStripMenuItem;
+        private ToolStripMenuItem monthlyToolStripMenuItem;
+        private ToolStripMenuItem yearlyToolStripMenuItem;
+        private ToolStripMenuItem byCarToolStripMenuItem;
     }
 }

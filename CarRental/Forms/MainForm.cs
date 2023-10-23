@@ -47,6 +47,7 @@ namespace CarRental
         //---------------------------------------------------------
         // fun
         //---------------------------------------------------------
+
         private void loadForm(Form form)
         {
             if (panel1.Controls.Count > 0)
@@ -59,7 +60,6 @@ namespace CarRental
             panel1.Tag = form;
             form.Show();
         }
-
 
     }
 }
