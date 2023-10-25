@@ -36,7 +36,7 @@ namespace CarRental.Forms.Car
             if (carEntity != null)
             {
                 Text = "Update car";
-                bindOldValue(carEntity);
+                BindOldValue(carEntity);
             }
         }
 
@@ -47,13 +47,13 @@ namespace CarRental.Forms.Car
                 if (carEntity == null)
                 {
                     carEntity = new CarEntity();
-                    getInput(carEntity);
-                    addCar(carEntity);
+                    GetInput(carEntity);
+                    AddCar(carEntity);
                 }
                 else
                 {
-                    getInput(carEntity);
-                    updateCar(carEntity);
+                    GetInput(carEntity);
+                    UpdateCar(carEntity);
                 }
                 Close();
             }
@@ -73,7 +73,7 @@ namespace CarRental.Forms.Car
         // fun
         //-------------------------------------------------------------------
 
-        private void bindOldValue(CarEntity carEntity)
+        private void BindOldValue(CarEntity carEntity)
         {
             nameCodeTextBox.Text = carEntity.NameCode;
             brandTextBox.Text = carEntity.Brand;
@@ -97,7 +97,7 @@ namespace CarRental.Forms.Car
             camera360CheckBox.Checked = carEntity.Camera360;
         }
 
-        private void getInput(CarEntity entity)
+        private void GetInput(CarEntity entity)
         {
             if (nameCodeTextBox.Text.Length == 0)
             {
@@ -136,7 +136,7 @@ namespace CarRental.Forms.Car
             entity.Camera360 = camera360CheckBox.Checked;
         }
 
-        private void addCar(CarEntity entity)
+        private void AddCar(CarEntity entity)
         {
             _context.Cars.Add(entity);
             _context.SaveChanges();
@@ -144,7 +144,7 @@ namespace CarRental.Forms.Car
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void updateCar(CarEntity entity)
+        private void UpdateCar(CarEntity entity)
         {
             _context.Cars.Update(entity);
             _context.SaveChanges();

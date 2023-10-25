@@ -59,8 +59,8 @@
             radioButton3 = new RadioButton();
             radioButton2 = new RadioButton();
             radioButton1 = new RadioButton();
-            button1 = new Button();
-            label5 = new Label();
+            addButton = new Button();
+            priceLabel = new Label();
             button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)customerEntityBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)carEntityBindingSource).BeginInit();
@@ -113,6 +113,7 @@
             carComboBox.Size = new Size(238, 28);
             carComboBox.TabIndex = 2;
             carComboBox.ValueMember = "Id";
+            carComboBox.SelectedIndexChanged += carComboBox_SelectedIndexChanged;
             // 
             // carEntityBindingSource
             // 
@@ -306,7 +307,6 @@
             label4.Size = new Size(69, 20);
             label4.TabIndex = 8;
             label4.Text = "Return at";
-            label4.Click += label4_Click;
             // 
             // returnAtDateTimePicker
             // 
@@ -328,7 +328,6 @@
             groupBox2.TabIndex = 9;
             groupBox2.TabStop = false;
             groupBox2.Text = "Fuel";
-            groupBox2.Enter += groupBox2_Enter;
             // 
             // radioButton4
             // 
@@ -337,7 +336,6 @@
             radioButton4.Name = "radioButton4";
             radioButton4.Size = new Size(94, 24);
             radioButton4.TabIndex = 3;
-            radioButton4.TabStop = true;
             radioButton4.Text = "Electricity";
             radioButton4.UseVisualStyleBackColor = true;
             // 
@@ -348,7 +346,6 @@
             radioButton3.Name = "radioButton3";
             radioButton3.Size = new Size(71, 24);
             radioButton3.TabIndex = 2;
-            radioButton3.TabStop = true;
             radioButton3.Text = "Diesel";
             radioButton3.UseVisualStyleBackColor = true;
             // 
@@ -359,13 +356,13 @@
             radioButton2.Name = "radioButton2";
             radioButton2.Size = new Size(87, 24);
             radioButton2.TabIndex = 1;
-            radioButton2.TabStop = true;
             radioButton2.Text = "Gasoline";
             radioButton2.UseVisualStyleBackColor = true;
             // 
             // radioButton1
             // 
             radioButton1.AutoSize = true;
+            radioButton1.Checked = true;
             radioButton1.Location = new Point(15, 26);
             radioButton1.Name = "radioButton1";
             radioButton1.Size = new Size(48, 24);
@@ -374,25 +371,26 @@
             radioButton1.Text = "All";
             radioButton1.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // addButton
             // 
-            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button1.Location = new Point(637, 512);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 10;
-            button1.Text = "Add";
-            button1.UseVisualStyleBackColor = true;
+            addButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            addButton.Location = new Point(637, 512);
+            addButton.Name = "addButton";
+            addButton.Size = new Size(94, 29);
+            addButton.TabIndex = 10;
+            addButton.Text = "Add";
+            addButton.UseVisualStyleBackColor = true;
+            addButton.Click += addButton_Click;
             // 
-            // label5
+            // priceLabel
             // 
-            label5.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            label5.AutoSize = true;
-            label5.Location = new Point(517, 516);
-            label5.Name = "label5";
-            label5.Size = new Size(89, 20);
-            label5.TabIndex = 12;
-            label5.Text = "Total: $3464";
+            priceLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            priceLabel.AutoSize = true;
+            priceLabel.Location = new Point(23, 516);
+            priceLabel.Name = "priceLabel";
+            priceLabel.Size = new Size(374, 20);
+            priceLabel.TabIndex = 12;
+            priceLabel.Text = "25/10/2023 - 26/10/2023,      $24 x 2 days,      Total: $48\r\n";
             // 
             // button2
             // 
@@ -410,8 +408,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(754, 564);
             Controls.Add(button2);
-            Controls.Add(label5);
-            Controls.Add(button1);
+            Controls.Add(priceLabel);
+            Controls.Add(addButton);
             Controls.Add(groupBox2);
             Controls.Add(label4);
             Controls.Add(returnAtDateTimePicker);
@@ -463,10 +461,10 @@
         private RadioButton radioButton3;
         private RadioButton radioButton2;
         private RadioButton radioButton1;
-        private Button button1;
+        private Button addButton;
         private CheckBox gPSCheckBox;
         private CheckBox spareTireCheckBox;
-        private Label label5;
+        private Label priceLabel;
         private BindingSource customerEntityBindingSource;
         private BindingSource carEntityBindingSource;
         private CheckBox SpeedWarningKitCheckBox;

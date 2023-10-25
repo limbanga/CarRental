@@ -33,11 +33,11 @@
             carEntityBindingSource = new BindingSource(components);
             dataGridView1 = new DataGridView();
             AddCarButton = new Button();
-            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            searchTextBox = new TextBox();
+            searchButton = new Button();
             nameCodeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             carTypeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             brandDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            pricePerDayDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             PricePerDay = new DataGridViewTextBoxColumn();
             Remove = new DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)carEntityBindingSource).BeginInit();
@@ -54,7 +54,7 @@
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, nameCodeDataGridViewTextBoxColumn, carTypeDataGridViewTextBoxColumn, brandDataGridViewTextBoxColumn, pricePerDayDataGridViewTextBoxColumn, PricePerDay, Remove });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { nameCodeDataGridViewTextBoxColumn, carTypeDataGridViewTextBoxColumn, brandDataGridViewTextBoxColumn, PricePerDay, Remove });
             dataGridView1.DataSource = carEntityBindingSource;
             dataGridView1.Location = new Point(23, 85);
             dataGridView1.Name = "dataGridView1";
@@ -75,12 +75,22 @@
             AddCarButton.UseVisualStyleBackColor = true;
             AddCarButton.Click += AddCarButton_Click;
             // 
-            // idDataGridViewTextBoxColumn
+            // searchTextBox
             // 
-            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            idDataGridViewTextBoxColumn.HeaderText = "Id";
-            idDataGridViewTextBoxColumn.MinimumWidth = 6;
-            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            searchTextBox.Location = new Point(23, 25);
+            searchTextBox.Name = "searchTextBox";
+            searchTextBox.Size = new Size(188, 27);
+            searchTextBox.TabIndex = 2;
+            // 
+            // searchButton
+            // 
+            searchButton.Location = new Point(217, 25);
+            searchButton.Name = "searchButton";
+            searchButton.Size = new Size(78, 29);
+            searchButton.TabIndex = 3;
+            searchButton.Text = "Search";
+            searchButton.UseVisualStyleBackColor = true;
+            searchButton.Click += searchButton_Click;
             // 
             // nameCodeDataGridViewTextBoxColumn
             // 
@@ -103,17 +113,10 @@
             brandDataGridViewTextBoxColumn.MinimumWidth = 6;
             brandDataGridViewTextBoxColumn.Name = "brandDataGridViewTextBoxColumn";
             // 
-            // pricePerDayDataGridViewTextBoxColumn
-            // 
-            pricePerDayDataGridViewTextBoxColumn.DataPropertyName = "PricePerDay";
-            pricePerDayDataGridViewTextBoxColumn.HeaderText = "PricePerDay";
-            pricePerDayDataGridViewTextBoxColumn.MinimumWidth = 6;
-            pricePerDayDataGridViewTextBoxColumn.Name = "pricePerDayDataGridViewTextBoxColumn";
-            // 
             // PricePerDay
             // 
             PricePerDay.DataPropertyName = "PricePerDay";
-            PricePerDay.HeaderText = "PricePerDay";
+            PricePerDay.HeaderText = "PricePerDay ($)";
             PricePerDay.MinimumWidth = 6;
             PricePerDay.Name = "PricePerDay";
             // 
@@ -131,6 +134,8 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(searchButton);
+            Controls.Add(searchTextBox);
             Controls.Add(AddCarButton);
             Controls.Add(dataGridView1);
             FormBorderStyle = FormBorderStyle.None;
@@ -141,6 +146,7 @@
             ((System.ComponentModel.ISupportInitialize)carEntityBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -148,11 +154,11 @@
         private BindingSource carEntityBindingSource;
         private DataGridView dataGridView1;
         private Button AddCarButton;
-        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private TextBox searchTextBox;
+        private Button searchButton;
         private DataGridViewTextBoxColumn nameCodeDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn carTypeDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn brandDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn pricePerDayDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn PricePerDay;
         private DataGridViewImageColumn Remove;
     }

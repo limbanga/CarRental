@@ -9,6 +9,8 @@ namespace CarRental
     public partial class MainForm : Form
     {
         CarRentalContext _context;
+        public string userName = null!;
+
         public MainForm()
         {
             InitializeComponent();
@@ -21,43 +23,59 @@ namespace CarRental
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            LoginForm form = new LoginForm(_context);
+            LoginForm form = new LoginForm(_context, this);
             form.ShowDialog();
             Hide();
 
-            loadForm(new ListCarForm(_context));
+            LoadForm(new ListCarForm(_context));
             Show();
         }
 
         private void carToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            loadForm(new ListCarForm(_context));
+            LoadForm(new ListCarForm(_context));
         }
 
         private void customerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            loadForm(new ListCustomerForm(_context));
+            LoadForm(new ListCustomerForm(_context));
         }
 
         private void bookingNoteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            loadForm(new ListBookingForm(_context));
+            LoadForm(new ListBookingForm(_context));
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Hide();
+            LoginForm form = new LoginForm(_context, this);
+            form.ShowDialog();
+
+            LoadForm(new ListCarForm(_context));
+            Show();
+        }
+
+        private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChangePasswordForm form = new ChangePasswordForm(_context, userName);
+            form.ShowDialog();
         }
 
         //---------------------------------------------------------
         // fun
         //---------------------------------------------------------
 
-        private void loadForm(Form form)
+        private void LoadForm(Form form)
         {
-            if (panel1.Controls.Count > 0)
+            if (panelMain.Controls.Count > 0)
             {
-                panel1.Controls.Clear();
+                panelMain.Controls.Clear();
             }
             form.TopLevel = false;
             form.Dock = DockStyle.Fill;
-            panel1.Controls.Add(form);
-            panel1.Tag = form;
+            panelMain.Controls.Add(form);
+            panelMain.Tag = form;
             form.Show();
         }
 

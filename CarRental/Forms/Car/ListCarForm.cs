@@ -64,14 +64,32 @@ namespace CarRental.Forms.Car
             loadCarList();
         }
 
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            string searchText = searchTextBox.Text;
+            if (string.IsNullOrEmpty(searchText))
+            {
+                return;
+            }
+
+            loadCarList(searchText);
+        }
+
         //------------------------------------------------------------
         // fun
         //------------------------------------------------------------
 
-        private void loadCarList()
+        private void loadCarList(string? searchText = null)
         {
-            dataGridView1.DataSource = _context.Cars.ToList();
-        }
+            var query = _context.Cars.AsQueryable();
 
+            if (!string.IsNullOrWhiteSpace(searchText))
+            {
+                query = _context.Cars.Where(c =>
+                    c.Brand.Contains(searchText));
+            }
+
+            dataGridView1.DataSource = query.ToList();
+        }
     }
 }

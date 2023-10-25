@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace CarRental.Exceptions
 {
-    public class ValidateException : Exception
+    public class AppContextException : Exception
     {
-        public ValidateException(string msg ) : base(msg) { } 
+        public AppContextException(string msg) : base(msg) { }
     }
 }

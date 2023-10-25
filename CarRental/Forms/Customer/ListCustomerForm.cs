@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace CarRental.Forms.Customer
 {
@@ -66,13 +67,34 @@ namespace CarRental.Forms.Customer
             loadCustomer();
         }
 
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            string searchText = searchTextBox.Text;
+            if (string.IsNullOrWhiteSpace(searchText))
+            {
+                return;
+            }
+
+            loadCustomer(searchText);
+        }
+
         //----------------------------------------------------------
         // fun
         //----------------------------------------------------------
 
-        private void loadCustomer()
+        private void loadCustomer(string? searchText = null)
         {
-            dataGridView1.DataSource = _context.Customers.ToList();
+            var query = _context.Customers.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(searchText))
+            {
+                query = _context.Customers.Where(
+                    x => x.Name.Contains(searchText) ||
+                    x.PhoneNumber.Contains(searchText)
+                    ).AsQueryable();
+            }
+
+            dataGridView1.DataSource = query.ToList();
         }
 
     }

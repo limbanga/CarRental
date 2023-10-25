@@ -34,18 +34,21 @@
             customerToolStripMenuItem = new ToolStripMenuItem();
             bookingNoteToolStripMenuItem = new ToolStripMenuItem();
             statisticToolStripMenuItem = new ToolStripMenuItem();
-            panel1 = new Panel();
-            monthlyToolStripMenuItem = new ToolStripMenuItem();
             dailyToolStripMenuItem = new ToolStripMenuItem();
+            monthlyToolStripMenuItem = new ToolStripMenuItem();
             yearlyToolStripMenuItem = new ToolStripMenuItem();
             byCarToolStripMenuItem = new ToolStripMenuItem();
+            accountToolStripMenuItem = new ToolStripMenuItem();
+            changePasswordToolStripMenuItem = new ToolStripMenuItem();
+            logoutToolStripMenuItem = new ToolStripMenuItem();
+            panelMain = new Panel();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { carToolStripMenuItem, customerToolStripMenuItem, bookingNoteToolStripMenuItem, statisticToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { carToolStripMenuItem, customerToolStripMenuItem, bookingNoteToolStripMenuItem, statisticToolStripMenuItem, accountToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1118, 28);
@@ -80,25 +83,17 @@
             statisticToolStripMenuItem.Size = new Size(75, 24);
             statisticToolStripMenuItem.Text = "Statistic";
             // 
-            // panel1
+            // dailyToolStripMenuItem
             // 
-            panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(0, 28);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1118, 574);
-            panel1.TabIndex = 1;
+            dailyToolStripMenuItem.Name = "dailyToolStripMenuItem";
+            dailyToolStripMenuItem.Size = new Size(146, 26);
+            dailyToolStripMenuItem.Text = "Daily";
             // 
             // monthlyToolStripMenuItem
             // 
             monthlyToolStripMenuItem.Name = "monthlyToolStripMenuItem";
             monthlyToolStripMenuItem.Size = new Size(146, 26);
             monthlyToolStripMenuItem.Text = "Monthly";
-            // 
-            // dailyToolStripMenuItem
-            // 
-            dailyToolStripMenuItem.Name = "dailyToolStripMenuItem";
-            dailyToolStripMenuItem.Size = new Size(146, 26);
-            dailyToolStripMenuItem.Text = "Daily";
             // 
             // yearlyToolStripMenuItem
             // 
@@ -112,12 +107,41 @@
             byCarToolStripMenuItem.Size = new Size(146, 26);
             byCarToolStripMenuItem.Text = "By Car";
             // 
+            // accountToolStripMenuItem
+            // 
+            accountToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { changePasswordToolStripMenuItem, logoutToolStripMenuItem });
+            accountToolStripMenuItem.Name = "accountToolStripMenuItem";
+            accountToolStripMenuItem.Size = new Size(77, 24);
+            accountToolStripMenuItem.Text = "Account";
+            // 
+            // changePasswordToolStripMenuItem
+            // 
+            changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
+            changePasswordToolStripMenuItem.Size = new Size(224, 26);
+            changePasswordToolStripMenuItem.Text = "ChangePassword";
+            changePasswordToolStripMenuItem.Click += changePasswordToolStripMenuItem_Click;
+            // 
+            // logoutToolStripMenuItem
+            // 
+            logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            logoutToolStripMenuItem.Size = new Size(224, 26);
+            logoutToolStripMenuItem.Text = "Logout";
+            logoutToolStripMenuItem.Click += logoutToolStripMenuItem_Click;
+            // 
+            // panelMain
+            // 
+            panelMain.Dock = DockStyle.Fill;
+            panelMain.Location = new Point(0, 28);
+            panelMain.Name = "panelMain";
+            panelMain.Size = new Size(1118, 574);
+            panelMain.TabIndex = 1;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1118, 602);
-            Controls.Add(panel1);
+            Controls.Add(panelMain);
             Controls.Add(menuStrip1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
@@ -135,7 +159,7 @@
 
         private MenuStrip menuStrip1;
         private ToolStripMenuItem carToolStripMenuItem;
-        private Panel panel1;
+        private Panel panelMain;
         private ToolStripMenuItem customerToolStripMenuItem;
         private ToolStripMenuItem bookingNoteToolStripMenuItem;
         private ToolStripMenuItem statisticToolStripMenuItem;
@@ -143,5 +167,8 @@
         private ToolStripMenuItem monthlyToolStripMenuItem;
         private ToolStripMenuItem yearlyToolStripMenuItem;
         private ToolStripMenuItem byCarToolStripMenuItem;
+        private ToolStripMenuItem accountToolStripMenuItem;
+        private ToolStripMenuItem changePasswordToolStripMenuItem;
+        private ToolStripMenuItem logoutToolStripMenuItem;
     }
 }

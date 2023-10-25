@@ -17,11 +17,13 @@ namespace CarRental.Forms.Auth
     {
         CarRentalContext _context;
         private bool _isExit = true;
+        MainForm _mainForm;
 
-        public LoginForm(CarRentalContext context)
+        public LoginForm(CarRentalContext context, MainForm mainForm)
         {
             InitializeComponent();
             _context = context;
+            _mainForm = mainForm;
         }
 
         //---------------------------------------------------------
@@ -32,7 +34,7 @@ namespace CarRental.Forms.Auth
         {
             if (_context.AppUsers.ToList().Count <= 0)
             {
-                createAdminAccount();
+                CreateAdminAccount();
             }
 
             string userName = userNameTextBox.Text;
@@ -56,6 +58,8 @@ namespace CarRental.Forms.Auth
                 return;
             }
 
+            _mainForm.userName = userName;
+
             _isExit = false;
             Close();
         }
@@ -77,7 +81,7 @@ namespace CarRental.Forms.Auth
         // fun
         //---------------------------------------------------------
 
-        private void createAdminAccount()
+        private void CreateAdminAccount()
         {
             AppUserEntity admin = new AppUserEntity()
             {
