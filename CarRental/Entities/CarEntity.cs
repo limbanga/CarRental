@@ -11,6 +11,7 @@ namespace CarRental.Entities
         public int Id { get; set; }
         public string NameCode { get; set; } = null!;
         public CarType CarType { get; set; }
+        public FuelType FuelType { get; set; }
         public string Brand { get; set; } = null!;
         public float PricePerDay { get; set; } = -1f;
 

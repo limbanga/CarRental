@@ -95,6 +95,21 @@ namespace CarRental.Forms.Car
             gPSCheckBox.Checked = carEntity.GPS;
             spareTireCheckBox.Checked = carEntity.SpareTire;
             camera360CheckBox.Checked = carEntity.Camera360;
+
+            switch (carEntity.FuelType)
+            {
+                case FuelType.Gasoline:
+                    gasolineRadioButton.Checked = true;
+                    break;
+                case FuelType.Diesel:
+                    dieselRadioButton.Checked = true;
+                    break;
+                case FuelType.Electricity:
+                    ElectricityRadioButton.Checked = true;
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void GetInput(CarEntity entity)
@@ -117,7 +132,7 @@ namespace CarRental.Forms.Car
 
             entity.NameCode = nameCodeTextBox.Text;
             entity.Brand = brandTextBox.Text;
-            entity.PricePerDay = (float) pricePerDay;
+            entity.PricePerDay = (float)pricePerDay;
             entity.CarType = ((CarType)carTypeComboBox.SelectedValue);
 
             entity.Map = mapCheckBox.Checked;
@@ -134,6 +149,19 @@ namespace CarRental.Forms.Car
             entity.GPS = gPSCheckBox.Checked;
             entity.SpareTire = spareTireCheckBox.Checked;
             entity.Camera360 = camera360CheckBox.Checked;
+
+            if (gasolineRadioButton.Checked)
+            {
+                entity.FuelType = FuelType.Gasoline;
+            }
+            else if (dieselRadioButton.Checked)
+            {
+                entity.FuelType = FuelType.Diesel;
+            }
+            else
+            {
+                entity.FuelType = FuelType.Electricity;
+            }
         }
 
         private void AddCar(CarEntity entity)

@@ -17,7 +17,7 @@ namespace CarRental.Forms.Booking
     public partial class Add_UpdateBookingForm : Form
     {
         CarRentalContext _context;
-        
+
         private bool _isFillterProcessing = false;
 
         public Add_UpdateBookingForm(CarRentalContext context)
@@ -139,6 +139,25 @@ namespace CarRental.Forms.Booking
         {
             Fillter();
         }
+        private void allRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            Fillter();
+        }
+
+        private void gasolineRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            Fillter();
+        }
+
+        private void dieselRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            Fillter();
+        }
+
+        private void electricityRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            Fillter();
+        }
         #endregion
         //--------------------------------------------------------------
 
@@ -213,7 +232,23 @@ namespace CarRental.Forms.Booking
                 return;
             }
 
+            FuelType? fuelType = null;
+
+            if (gasolineRadioButton.Checked)
+            {
+                fuelType = FuelType.Gasoline;
+            }
+            else if (dieselRadioButton.Checked)
+            {
+                fuelType = FuelType.Diesel;
+            }
+            else if (electricityRadioButton.Checked)
+            {
+                fuelType = FuelType.Electricity;
+            }
+
             LoadCarComboboxSource(
+                fuelType: fuelType,
                 isMap: mapCheckBox.Checked,
                 isSunRoof: sunroofCheckBox.Checked,
                 isBlueTooth: blueToothCheckBox.Checked,
@@ -230,7 +265,21 @@ namespace CarRental.Forms.Booking
                 isSpeedWarningKit: SpeedWarningKitCheckBox.Checked
                 );
 
-            addButton.Enabled = carComboBox.Items.Count > 0;
+            if (carComboBox.Items.Count == 0) 
+            {
+                addButton.Enabled = false;
+                rentAtDateTimePicker.Enabled = false;
+                returnAtDateTimePicker.Enabled = false;
+                priceLabel.Text = "Not found car for your request.";
+                carComboBox.Text = string.Empty;
+            }
+            else
+            {
+                addButton.Enabled = true;
+                rentAtDateTimePicker.Enabled = true;
+                returnAtDateTimePicker.Enabled = true;
+                priceLabel.Text = "Please choose a car for preview price.";
+            }
         }
 
         private void AddBooking(BookingNoteEntity entity)
@@ -256,6 +305,7 @@ namespace CarRental.Forms.Booking
         }
 
         private void LoadCarComboboxSource(
+            FuelType? fuelType = null,
             bool isMap = false,
             bool isSunRoof = false,
             bool isBlueTooth = false,
@@ -343,16 +393,17 @@ namespace CarRental.Forms.Booking
             {
                 query = query.Where(x => x.SpeedWarningKit).AsQueryable();
             }
+
+            if (fuelType != null)
+            {
+                query = query.Where(x => x.FuelType.Equals(fuelType)).AsQueryable();
+            }
             #endregion
-            
-//          MessageBox.Show("Test" + query.ToQueryString());
+
+            //MessageBox.Show("Test" + query.ToQueryString());
 
             carComboBox.DataSource = query.ToList();
         }
 
-        private void allRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

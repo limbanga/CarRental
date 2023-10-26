@@ -52,13 +52,18 @@
             tireSensorCheckBox = new CheckBox();
             marginalCameraCheckBox = new CheckBox();
             mapCheckBox = new CheckBox();
+            FuelGroupBox = new GroupBox();
+            ElectricityRadioButton = new RadioButton();
+            dieselRadioButton = new RadioButton();
+            gasolineRadioButton = new RadioButton();
             groupBox1.SuspendLayout();
+            FuelGroupBox.SuspendLayout();
             SuspendLayout();
             // 
             // saveButton
             // 
             saveButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            saveButton.Location = new Point(630, 383);
+            saveButton.Location = new Point(630, 456);
             saveButton.Name = "saveButton";
             saveButton.Size = new Size(94, 29);
             saveButton.TabIndex = 0;
@@ -150,16 +155,16 @@
             groupBox1.Controls.Add(mapCheckBox);
             groupBox1.Location = new Point(23, 148);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(701, 211);
+            groupBox1.Size = new Size(700, 211);
             groupBox1.TabIndex = 9;
             groupBox1.TabStop = false;
             groupBox1.Text = "Feature";
             // 
-            // SpeedWarningKitCheckBox
+            // speedWarningKitCheckBox
             // 
             speedWarningKitCheckBox.AutoSize = true;
             speedWarningKitCheckBox.Location = new Point(193, 166);
-            speedWarningKitCheckBox.Name = "SpeedWarningKitCheckBox";
+            speedWarningKitCheckBox.Name = "speedWarningKitCheckBox";
             speedWarningKitCheckBox.Size = new Size(154, 24);
             speedWarningKitCheckBox.TabIndex = 14;
             speedWarningKitCheckBox.Text = "Speed Warning Kit";
@@ -295,11 +300,57 @@
             mapCheckBox.Text = "Map";
             mapCheckBox.UseVisualStyleBackColor = true;
             // 
+            // FuelGroupBox
+            // 
+            FuelGroupBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            FuelGroupBox.Controls.Add(ElectricityRadioButton);
+            FuelGroupBox.Controls.Add(dieselRadioButton);
+            FuelGroupBox.Controls.Add(gasolineRadioButton);
+            FuelGroupBox.Location = new Point(23, 373);
+            FuelGroupBox.Name = "FuelGroupBox";
+            FuelGroupBox.Size = new Size(700, 66);
+            FuelGroupBox.TabIndex = 10;
+            FuelGroupBox.TabStop = false;
+            FuelGroupBox.Text = "Fuel";
+            // 
+            // ElectricityRadioButton
+            // 
+            ElectricityRadioButton.AutoSize = true;
+            ElectricityRadioButton.Location = new Point(568, 26);
+            ElectricityRadioButton.Name = "ElectricityRadioButton";
+            ElectricityRadioButton.Size = new Size(94, 24);
+            ElectricityRadioButton.TabIndex = 3;
+            ElectricityRadioButton.Text = "Electricity";
+            ElectricityRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // dieselRadioButton
+            // 
+            dieselRadioButton.AutoSize = true;
+            dieselRadioButton.Location = new Point(292, 26);
+            dieselRadioButton.Name = "dieselRadioButton";
+            dieselRadioButton.Size = new Size(71, 24);
+            dieselRadioButton.TabIndex = 2;
+            dieselRadioButton.Text = "Diesel";
+            dieselRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // gasolineRadioButton
+            // 
+            gasolineRadioButton.AutoSize = true;
+            gasolineRadioButton.Checked = true;
+            gasolineRadioButton.Location = new Point(15, 26);
+            gasolineRadioButton.Name = "gasolineRadioButton";
+            gasolineRadioButton.Size = new Size(87, 24);
+            gasolineRadioButton.TabIndex = 1;
+            gasolineRadioButton.TabStop = true;
+            gasolineRadioButton.Text = "Gasoline";
+            gasolineRadioButton.UseVisualStyleBackColor = true;
+            // 
             // Add_UpdateCarForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(747, 435);
+            ClientSize = new Size(746, 508);
+            Controls.Add(FuelGroupBox);
             Controls.Add(groupBox1);
             Controls.Add(pricePerDayTextBox);
             Controls.Add(label4);
@@ -317,6 +368,8 @@
             Load += Add_UpdateCarForm_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            FuelGroupBox.ResumeLayout(false);
+            FuelGroupBox.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -347,5 +400,9 @@
         private CheckBox tireSensorCheckBox;
         private CheckBox marginalCameraCheckBox;
         private CheckBox mapCheckBox;
+        private GroupBox FuelGroupBox;
+        private RadioButton ElectricityRadioButton;
+        private RadioButton dieselRadioButton;
+        private RadioButton gasolineRadioButton;
     }
 }

@@ -54,10 +54,10 @@
             label3 = new Label();
             label4 = new Label();
             returnAtDateTimePicker = new DateTimePicker();
-            groupBox2 = new GroupBox();
-            radioButton4 = new RadioButton();
-            radioButton3 = new RadioButton();
-            radioButton2 = new RadioButton();
+            FuelGroupBox = new GroupBox();
+            electricityRadioButton = new RadioButton();
+            dieselRadioButton = new RadioButton();
+            gasolineRadioButton = new RadioButton();
             allRadioButton = new RadioButton();
             addButton = new Button();
             priceLabel = new Label();
@@ -65,7 +65,7 @@
             ((System.ComponentModel.ISupportInitialize)customerEntityBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)carEntityBindingSource).BeginInit();
             groupBox1.SuspendLayout();
-            groupBox2.SuspendLayout();
+            FuelGroupBox.SuspendLayout();
             SuspendLayout();
             // 
             // customerComboBox
@@ -331,49 +331,52 @@
             returnAtDateTimePicker.TabIndex = 7;
             returnAtDateTimePicker.ValueChanged += returnAtDateTimePicker_ValueChanged;
             // 
-            // groupBox2
+            // FuelGroupBox
             // 
-            groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            groupBox2.Controls.Add(radioButton4);
-            groupBox2.Controls.Add(radioButton3);
-            groupBox2.Controls.Add(radioButton2);
-            groupBox2.Controls.Add(allRadioButton);
-            groupBox2.Location = new Point(23, 420);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(708, 66);
-            groupBox2.TabIndex = 9;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Fuel";
+            FuelGroupBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            FuelGroupBox.Controls.Add(electricityRadioButton);
+            FuelGroupBox.Controls.Add(dieselRadioButton);
+            FuelGroupBox.Controls.Add(gasolineRadioButton);
+            FuelGroupBox.Controls.Add(allRadioButton);
+            FuelGroupBox.Location = new Point(23, 420);
+            FuelGroupBox.Name = "FuelGroupBox";
+            FuelGroupBox.Size = new Size(708, 66);
+            FuelGroupBox.TabIndex = 9;
+            FuelGroupBox.TabStop = false;
+            FuelGroupBox.Text = "Fuel";
             // 
-            // radioButton4
+            // electricityRadioButton
             // 
-            radioButton4.AutoSize = true;
-            radioButton4.Location = new Point(568, 26);
-            radioButton4.Name = "radioButton4";
-            radioButton4.Size = new Size(94, 24);
-            radioButton4.TabIndex = 3;
-            radioButton4.Text = "Electricity";
-            radioButton4.UseVisualStyleBackColor = true;
+            electricityRadioButton.AutoSize = true;
+            electricityRadioButton.Location = new Point(568, 26);
+            electricityRadioButton.Name = "electricityRadioButton";
+            electricityRadioButton.Size = new Size(94, 24);
+            electricityRadioButton.TabIndex = 3;
+            electricityRadioButton.Text = "Electricity";
+            electricityRadioButton.UseVisualStyleBackColor = true;
+            electricityRadioButton.CheckedChanged += electricityRadioButton_CheckedChanged;
             // 
-            // radioButton3
+            // dieselRadioButton
             // 
-            radioButton3.AutoSize = true;
-            radioButton3.Location = new Point(393, 26);
-            radioButton3.Name = "radioButton3";
-            radioButton3.Size = new Size(71, 24);
-            radioButton3.TabIndex = 2;
-            radioButton3.Text = "Diesel";
-            radioButton3.UseVisualStyleBackColor = true;
+            dieselRadioButton.AutoSize = true;
+            dieselRadioButton.Location = new Point(393, 26);
+            dieselRadioButton.Name = "dieselRadioButton";
+            dieselRadioButton.Size = new Size(71, 24);
+            dieselRadioButton.TabIndex = 2;
+            dieselRadioButton.Text = "Diesel";
+            dieselRadioButton.UseVisualStyleBackColor = true;
+            dieselRadioButton.CheckedChanged += dieselRadioButton_CheckedChanged;
             // 
-            // radioButton2
+            // gasolineRadioButton
             // 
-            radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(189, 26);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(87, 24);
-            radioButton2.TabIndex = 1;
-            radioButton2.Text = "Gasoline";
-            radioButton2.UseVisualStyleBackColor = true;
+            gasolineRadioButton.AutoSize = true;
+            gasolineRadioButton.Location = new Point(189, 26);
+            gasolineRadioButton.Name = "gasolineRadioButton";
+            gasolineRadioButton.Size = new Size(87, 24);
+            gasolineRadioButton.TabIndex = 1;
+            gasolineRadioButton.Text = "Gasoline";
+            gasolineRadioButton.UseVisualStyleBackColor = true;
+            gasolineRadioButton.CheckedChanged += gasolineRadioButton_CheckedChanged;
             // 
             // allRadioButton
             // 
@@ -429,7 +432,7 @@
             Controls.Add(clearFillterButton);
             Controls.Add(priceLabel);
             Controls.Add(addButton);
-            Controls.Add(groupBox2);
+            Controls.Add(FuelGroupBox);
             Controls.Add(label4);
             Controls.Add(returnAtDateTimePicker);
             Controls.Add(label3);
@@ -448,8 +451,8 @@
             ((System.ComponentModel.ISupportInitialize)carEntityBindingSource).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
+            FuelGroupBox.ResumeLayout(false);
+            FuelGroupBox.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -475,10 +478,10 @@
         private CheckBox uSBCheckBox;
         private CheckBox sunroofCheckBox;
         private CheckBox collisionSensorCheckBox;
-        private GroupBox groupBox2;
-        private RadioButton radioButton4;
-        private RadioButton radioButton3;
-        private RadioButton radioButton2;
+        private GroupBox FuelGroupBox;
+        private RadioButton electricityRadioButton;
+        private RadioButton dieselRadioButton;
+        private RadioButton gasolineRadioButton;
         private RadioButton allRadioButton;
         private Button addButton;
         private CheckBox gPSCheckBox;
