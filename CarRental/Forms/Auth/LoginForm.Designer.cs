@@ -60,7 +60,7 @@
             passwordTextBox.Name = "passwordTextBox";
             passwordTextBox.Size = new Size(172, 27);
             passwordTextBox.TabIndex = 3;
-            passwordTextBox.Text = "admin";
+            passwordTextBox.Text = "Letmein12#";
             passwordTextBox.UseSystemPasswordChar = true;
             // 
             // label2

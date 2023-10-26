@@ -58,10 +58,10 @@
             radioButton4 = new RadioButton();
             radioButton3 = new RadioButton();
             radioButton2 = new RadioButton();
-            radioButton1 = new RadioButton();
+            allRadioButton = new RadioButton();
             addButton = new Button();
             priceLabel = new Label();
-            button2 = new Button();
+            clearFillterButton = new Button();
             ((System.ComponentModel.ISupportInitialize)customerEntityBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)carEntityBindingSource).BeginInit();
             groupBox1.SuspendLayout();
@@ -152,6 +152,7 @@
             SpeedWarningKitCheckBox.TabIndex = 14;
             SpeedWarningKitCheckBox.Text = "Speed Warning Kit";
             SpeedWarningKitCheckBox.UseVisualStyleBackColor = true;
+            SpeedWarningKitCheckBox.CheckedChanged += SpeedWarningKitCheckBox_CheckedChanged;
             // 
             // reversingCameraCheckBox
             // 
@@ -162,6 +163,7 @@
             reversingCameraCheckBox.TabIndex = 12;
             reversingCameraCheckBox.Text = "Reversing camera";
             reversingCameraCheckBox.UseVisualStyleBackColor = true;
+            reversingCameraCheckBox.CheckedChanged += reversingCameraCheckBox_CheckedChanged;
             // 
             // gPSCheckBox
             // 
@@ -172,6 +174,7 @@
             gPSCheckBox.TabIndex = 11;
             gPSCheckBox.Text = "GPS";
             gPSCheckBox.UseVisualStyleBackColor = true;
+            gPSCheckBox.CheckedChanged += gPSCheckBox_CheckedChanged;
             // 
             // spareTireCheckBox
             // 
@@ -182,6 +185,7 @@
             spareTireCheckBox.TabIndex = 10;
             spareTireCheckBox.Text = "Spare tires";
             spareTireCheckBox.UseVisualStyleBackColor = true;
+            spareTireCheckBox.CheckedChanged += spareTireCheckBox_CheckedChanged;
             // 
             // dashCamCheckBox
             // 
@@ -192,6 +196,7 @@
             dashCamCheckBox.TabIndex = 9;
             dashCamCheckBox.Text = "Dashcam";
             dashCamCheckBox.UseVisualStyleBackColor = true;
+            dashCamCheckBox.CheckedChanged += dashCamCheckBox_CheckedChanged;
             // 
             // blueToothCheckBox
             // 
@@ -202,6 +207,7 @@
             blueToothCheckBox.TabIndex = 8;
             blueToothCheckBox.Text = "Bluetooth";
             blueToothCheckBox.UseVisualStyleBackColor = true;
+            blueToothCheckBox.CheckedChanged += blueToothCheckBox_CheckedChanged;
             // 
             // camera360CheckBox
             // 
@@ -212,6 +218,7 @@
             camera360CheckBox.TabIndex = 7;
             camera360CheckBox.Text = "Camera 360";
             camera360CheckBox.UseVisualStyleBackColor = true;
+            camera360CheckBox.CheckedChanged += camera360CheckBox_CheckedChanged;
             // 
             // pickupTruckTrunkCoverCheckBox
             // 
@@ -222,6 +229,7 @@
             pickupTruckTrunkCoverCheckBox.TabIndex = 6;
             pickupTruckTrunkCoverCheckBox.Text = "Pickup truck trunk cover";
             pickupTruckTrunkCoverCheckBox.UseVisualStyleBackColor = true;
+            pickupTruckTrunkCoverCheckBox.CheckedChanged += pickupTruckTrunkCoverCheckBox_CheckedChanged;
             // 
             // uSBCheckBox
             // 
@@ -232,6 +240,7 @@
             uSBCheckBox.TabIndex = 5;
             uSBCheckBox.Text = "USB";
             uSBCheckBox.UseVisualStyleBackColor = true;
+            uSBCheckBox.CheckedChanged += uSBCheckBox_CheckedChanged;
             // 
             // sunroofCheckBox
             // 
@@ -242,6 +251,7 @@
             sunroofCheckBox.TabIndex = 4;
             sunroofCheckBox.Text = "Sunroof";
             sunroofCheckBox.UseVisualStyleBackColor = true;
+            sunroofCheckBox.CheckedChanged += sunroofCheckBox_CheckedChanged;
             // 
             // collisionSensorCheckBox
             // 
@@ -252,6 +262,7 @@
             collisionSensorCheckBox.TabIndex = 3;
             collisionSensorCheckBox.Text = "Collision sensor";
             collisionSensorCheckBox.UseVisualStyleBackColor = true;
+            collisionSensorCheckBox.CheckedChanged += collisionSensorCheckBox_CheckedChanged;
             // 
             // tireSensorCheckBox
             // 
@@ -262,6 +273,7 @@
             tireSensorCheckBox.TabIndex = 2;
             tireSensorCheckBox.Text = "Tire sensor";
             tireSensorCheckBox.UseVisualStyleBackColor = true;
+            tireSensorCheckBox.CheckedChanged += tireSensorCheckBox_CheckedChanged;
             // 
             // marginalCameraCheckBox
             // 
@@ -272,6 +284,7 @@
             marginalCameraCheckBox.TabIndex = 1;
             marginalCameraCheckBox.Text = "Marginal camera";
             marginalCameraCheckBox.UseVisualStyleBackColor = true;
+            marginalCameraCheckBox.CheckedChanged += marginalCameraCheckBox_CheckedChanged;
             // 
             // mapCheckBox
             // 
@@ -282,6 +295,7 @@
             mapCheckBox.TabIndex = 0;
             mapCheckBox.Text = "Map";
             mapCheckBox.UseVisualStyleBackColor = true;
+            mapCheckBox.CheckedChanged += mapCheckBox_CheckedChanged;
             // 
             // rentAtDateTimePicker
             // 
@@ -289,6 +303,7 @@
             rentAtDateTimePicker.Name = "rentAtDateTimePicker";
             rentAtDateTimePicker.Size = new Size(239, 27);
             rentAtDateTimePicker.TabIndex = 5;
+            rentAtDateTimePicker.ValueChanged += rentAtDateTimePicker_ValueChanged;
             // 
             // label3
             // 
@@ -314,6 +329,7 @@
             returnAtDateTimePicker.Name = "returnAtDateTimePicker";
             returnAtDateTimePicker.Size = new Size(238, 27);
             returnAtDateTimePicker.TabIndex = 7;
+            returnAtDateTimePicker.ValueChanged += returnAtDateTimePicker_ValueChanged;
             // 
             // groupBox2
             // 
@@ -321,7 +337,7 @@
             groupBox2.Controls.Add(radioButton4);
             groupBox2.Controls.Add(radioButton3);
             groupBox2.Controls.Add(radioButton2);
-            groupBox2.Controls.Add(radioButton1);
+            groupBox2.Controls.Add(allRadioButton);
             groupBox2.Location = new Point(23, 420);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(708, 66);
@@ -359,17 +375,18 @@
             radioButton2.Text = "Gasoline";
             radioButton2.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // allRadioButton
             // 
-            radioButton1.AutoSize = true;
-            radioButton1.Checked = true;
-            radioButton1.Location = new Point(15, 26);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(48, 24);
-            radioButton1.TabIndex = 0;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "All";
-            radioButton1.UseVisualStyleBackColor = true;
+            allRadioButton.AutoSize = true;
+            allRadioButton.Checked = true;
+            allRadioButton.Location = new Point(15, 26);
+            allRadioButton.Name = "allRadioButton";
+            allRadioButton.Size = new Size(48, 24);
+            allRadioButton.TabIndex = 0;
+            allRadioButton.TabStop = true;
+            allRadioButton.Text = "All";
+            allRadioButton.UseVisualStyleBackColor = true;
+            allRadioButton.CheckedChanged += allRadioButton_CheckedChanged;
             // 
             // addButton
             // 
@@ -386,28 +403,30 @@
             // 
             priceLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             priceLabel.AutoSize = true;
-            priceLabel.Location = new Point(23, 516);
+            priceLabel.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            priceLabel.Location = new Point(34, 513);
             priceLabel.Name = "priceLabel";
-            priceLabel.Size = new Size(374, 20);
+            priceLabel.Size = new Size(518, 28);
             priceLabel.TabIndex = 12;
             priceLabel.Text = "25/10/2023 - 26/10/2023,      $24 x 2 days,      Total: $48\r\n";
             // 
-            // button2
+            // clearFillterButton
             // 
-            button2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button2.Location = new Point(637, 157);
-            button2.Name = "button2";
-            button2.Size = new Size(94, 29);
-            button2.TabIndex = 13;
-            button2.Text = "Clear fillter";
-            button2.UseVisualStyleBackColor = true;
+            clearFillterButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            clearFillterButton.Location = new Point(637, 157);
+            clearFillterButton.Name = "clearFillterButton";
+            clearFillterButton.Size = new Size(94, 29);
+            clearFillterButton.TabIndex = 13;
+            clearFillterButton.Text = "Clear fillter";
+            clearFillterButton.UseVisualStyleBackColor = true;
+            clearFillterButton.Click += clearFillterButton_Click;
             // 
             // Add_UpdateBookingForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(754, 564);
-            Controls.Add(button2);
+            Controls.Add(clearFillterButton);
             Controls.Add(priceLabel);
             Controls.Add(addButton);
             Controls.Add(groupBox2);
@@ -460,7 +479,7 @@
         private RadioButton radioButton4;
         private RadioButton radioButton3;
         private RadioButton radioButton2;
-        private RadioButton radioButton1;
+        private RadioButton allRadioButton;
         private Button addButton;
         private CheckBox gPSCheckBox;
         private CheckBox spareTireCheckBox;
@@ -469,6 +488,6 @@
         private BindingSource carEntityBindingSource;
         private CheckBox SpeedWarningKitCheckBox;
         private CheckBox reversingCameraCheckBox;
-        private Button button2;
+        private Button clearFillterButton;
     }
 }
