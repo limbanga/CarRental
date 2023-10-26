@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClosedXML.Attributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ namespace CarRental.Entities
         public string PhoneNumber { get; set; } = null!;
         public string Address { get; set; } = null!;
 
+        [XLColumn(Ignore = true)]
         public string ComboboxDisplay => $"{PhoneNumber}-{Name}";
 
     }

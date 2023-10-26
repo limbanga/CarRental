@@ -1,8 +1,13 @@
 using CarRental.Data;
+using CarRental.Entities;
 using CarRental.Forms.Auth;
 using CarRental.Forms.Booking;
 using CarRental.Forms.Car;
 using CarRental.Forms.Customer;
+using CarRental.Helper;
+using ClosedXML.Excel;
+using Ganss.Excel;
+using NPOI.SS.Formula.Functions;
 
 namespace CarRental
 {
@@ -79,5 +84,63 @@ namespace CarRental
             form.Show();
         }
 
+        private void exportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Excel Workbook| *.xlsx";
+
+            saveFileDialog.RestoreDirectory = true;
+            saveFileDialog.FileName = "customers.xlsx";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    var customers = _context.Customers.ToList();
+
+                    ExcelHelper.Export<CustomerEntity>(
+                        customers,
+                        saveFileDialog.FileName,
+                        "Sheet1");
+
+                    MessageBox.Show("Save to file successfully.", "Success",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
+
+        private void importToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Excel Workbook| *.xlsx";
+            openFileDialog.RestoreDirectory = true;
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+
+                    var customers = ExcelHelper.Import<CustomerEntity>(openFileDialog.FileName);
+
+                    string temp = "";
+                    foreach (var item in customers)
+                    {
+                        temp += item.ComboboxDisplay.ToString() + "\n";
+                    }
+
+                    //MessageBox.Show("Load to file successfully.", "Success",
+                    //    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    MessageBox.Show("Test" + temp);
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
     }
 }

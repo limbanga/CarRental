@@ -32,9 +32,10 @@
             menuStrip1 = new MenuStrip();
             carToolStripMenuItem = new ToolStripMenuItem();
             customerToolStripMenuItem = new ToolStripMenuItem();
+            importToolStripMenuItem = new ToolStripMenuItem();
+            exportToolStripMenuItem = new ToolStripMenuItem();
             bookingNoteToolStripMenuItem = new ToolStripMenuItem();
             statisticToolStripMenuItem = new ToolStripMenuItem();
-            dailyToolStripMenuItem = new ToolStripMenuItem();
             monthlyToolStripMenuItem = new ToolStripMenuItem();
             yearlyToolStripMenuItem = new ToolStripMenuItem();
             byCarToolStripMenuItem = new ToolStripMenuItem();
@@ -42,6 +43,8 @@
             changePasswordToolStripMenuItem = new ToolStripMenuItem();
             logoutToolStripMenuItem = new ToolStripMenuItem();
             panelMain = new Panel();
+            importToolStripMenuItem1 = new ToolStripMenuItem();
+            exportToolStripMenuItem1 = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -57,6 +60,7 @@
             // 
             // carToolStripMenuItem
             // 
+            carToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { importToolStripMenuItem1, exportToolStripMenuItem1 });
             carToolStripMenuItem.Name = "carToolStripMenuItem";
             carToolStripMenuItem.Size = new Size(45, 24);
             carToolStripMenuItem.Text = "Car";
@@ -64,10 +68,25 @@
             // 
             // customerToolStripMenuItem
             // 
+            customerToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { importToolStripMenuItem, exportToolStripMenuItem });
             customerToolStripMenuItem.Name = "customerToolStripMenuItem";
             customerToolStripMenuItem.Size = new Size(86, 24);
             customerToolStripMenuItem.Text = "Customer";
             customerToolStripMenuItem.Click += customerToolStripMenuItem_Click;
+            // 
+            // importToolStripMenuItem
+            // 
+            importToolStripMenuItem.Name = "importToolStripMenuItem";
+            importToolStripMenuItem.Size = new Size(224, 26);
+            importToolStripMenuItem.Text = "Import";
+            importToolStripMenuItem.Click += importToolStripMenuItem_Click;
+            // 
+            // exportToolStripMenuItem
+            // 
+            exportToolStripMenuItem.Name = "exportToolStripMenuItem";
+            exportToolStripMenuItem.Size = new Size(224, 26);
+            exportToolStripMenuItem.Text = "Export";
+            exportToolStripMenuItem.Click += exportToolStripMenuItem_Click;
             // 
             // bookingNoteToolStripMenuItem
             // 
@@ -78,16 +97,10 @@
             // 
             // statisticToolStripMenuItem
             // 
-            statisticToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { dailyToolStripMenuItem, monthlyToolStripMenuItem, yearlyToolStripMenuItem, byCarToolStripMenuItem });
+            statisticToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { monthlyToolStripMenuItem, yearlyToolStripMenuItem, byCarToolStripMenuItem });
             statisticToolStripMenuItem.Name = "statisticToolStripMenuItem";
             statisticToolStripMenuItem.Size = new Size(75, 24);
             statisticToolStripMenuItem.Text = "Statistic";
-            // 
-            // dailyToolStripMenuItem
-            // 
-            dailyToolStripMenuItem.Name = "dailyToolStripMenuItem";
-            dailyToolStripMenuItem.Size = new Size(146, 26);
-            dailyToolStripMenuItem.Text = "Daily";
             // 
             // monthlyToolStripMenuItem
             // 
@@ -117,14 +130,14 @@
             // changePasswordToolStripMenuItem
             // 
             changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
-            changePasswordToolStripMenuItem.Size = new Size(224, 26);
+            changePasswordToolStripMenuItem.Size = new Size(203, 26);
             changePasswordToolStripMenuItem.Text = "ChangePassword";
             changePasswordToolStripMenuItem.Click += changePasswordToolStripMenuItem_Click;
             // 
             // logoutToolStripMenuItem
             // 
             logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            logoutToolStripMenuItem.Size = new Size(224, 26);
+            logoutToolStripMenuItem.Size = new Size(203, 26);
             logoutToolStripMenuItem.Text = "Logout";
             logoutToolStripMenuItem.Click += logoutToolStripMenuItem_Click;
             // 
@@ -135,6 +148,18 @@
             panelMain.Name = "panelMain";
             panelMain.Size = new Size(1118, 574);
             panelMain.TabIndex = 1;
+            // 
+            // importToolStripMenuItem1
+            // 
+            importToolStripMenuItem1.Name = "importToolStripMenuItem1";
+            importToolStripMenuItem1.Size = new Size(224, 26);
+            importToolStripMenuItem1.Text = "Import";
+            // 
+            // exportToolStripMenuItem1
+            // 
+            exportToolStripMenuItem1.Name = "exportToolStripMenuItem1";
+            exportToolStripMenuItem1.Size = new Size(224, 26);
+            exportToolStripMenuItem1.Text = "Export";
             // 
             // MainForm
             // 
@@ -163,12 +188,15 @@
         private ToolStripMenuItem customerToolStripMenuItem;
         private ToolStripMenuItem bookingNoteToolStripMenuItem;
         private ToolStripMenuItem statisticToolStripMenuItem;
-        private ToolStripMenuItem dailyToolStripMenuItem;
         private ToolStripMenuItem monthlyToolStripMenuItem;
         private ToolStripMenuItem yearlyToolStripMenuItem;
         private ToolStripMenuItem byCarToolStripMenuItem;
         private ToolStripMenuItem accountToolStripMenuItem;
         private ToolStripMenuItem changePasswordToolStripMenuItem;
         private ToolStripMenuItem logoutToolStripMenuItem;
+        private ToolStripMenuItem importToolStripMenuItem;
+        private ToolStripMenuItem exportToolStripMenuItem;
+        private ToolStripMenuItem importToolStripMenuItem1;
+        private ToolStripMenuItem exportToolStripMenuItem1;
     }
 }
