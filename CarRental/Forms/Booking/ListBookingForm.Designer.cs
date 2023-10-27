@@ -31,14 +31,15 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListBookingForm));
             dataGridView1 = new DataGridView();
+            bookingNoteEntityBindingSource = new BindingSource(components);
+            addBookingButton = new Button();
             userNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             CarName = new DataGridViewTextBoxColumn();
             rentAtDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             returnAtDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            realReturnAtDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            GetRealReturnedAt = new DataGridViewTextBoxColumn();
+            TotalFee = new DataGridViewTextBoxColumn();
             Checkout = new DataGridViewImageColumn();
-            bookingNoteEntityBindingSource = new BindingSource(components);
-            addBookingButton = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bookingNoteEntityBindingSource).BeginInit();
             SuspendLayout();
@@ -49,7 +50,7 @@
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { userNameDataGridViewTextBoxColumn, CarName, rentAtDataGridViewTextBoxColumn, returnAtDataGridViewTextBoxColumn, realReturnAtDataGridViewTextBoxColumn, Checkout });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { userNameDataGridViewTextBoxColumn, CarName, rentAtDataGridViewTextBoxColumn, returnAtDataGridViewTextBoxColumn, GetRealReturnedAt, TotalFee, Checkout });
             dataGridView1.DataSource = bookingNoteEntityBindingSource;
             dataGridView1.Location = new Point(23, 90);
             dataGridView1.Name = "dataGridView1";
@@ -58,6 +59,21 @@
             dataGridView1.Size = new Size(884, 404);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            // 
+            // bookingNoteEntityBindingSource
+            // 
+            bookingNoteEntityBindingSource.DataSource = typeof(Entities.BookingNoteEntity);
+            // 
+            // addBookingButton
+            // 
+            addBookingButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            addBookingButton.Location = new Point(813, 23);
+            addBookingButton.Name = "addBookingButton";
+            addBookingButton.Size = new Size(94, 29);
+            addBookingButton.TabIndex = 1;
+            addBookingButton.Text = "Add";
+            addBookingButton.UseVisualStyleBackColor = true;
+            addBookingButton.Click += addBookingButton_Click;
             // 
             // userNameDataGridViewTextBoxColumn
             // 
@@ -89,12 +105,20 @@
             returnAtDataGridViewTextBoxColumn.MinimumWidth = 6;
             returnAtDataGridViewTextBoxColumn.Name = "returnAtDataGridViewTextBoxColumn";
             // 
-            // realReturnAtDataGridViewTextBoxColumn
+            // GetRealReturnedAt
             // 
-            realReturnAtDataGridViewTextBoxColumn.DataPropertyName = "RealReturnAt";
-            realReturnAtDataGridViewTextBoxColumn.HeaderText = "RealReturnAt";
-            realReturnAtDataGridViewTextBoxColumn.MinimumWidth = 6;
-            realReturnAtDataGridViewTextBoxColumn.Name = "realReturnAtDataGridViewTextBoxColumn";
+            GetRealReturnedAt.DataPropertyName = "GetRealReturnedAt";
+            GetRealReturnedAt.HeaderText = "RealReturnedAt";
+            GetRealReturnedAt.MinimumWidth = 6;
+            GetRealReturnedAt.Name = "GetRealReturnedAt";
+            GetRealReturnedAt.ReadOnly = true;
+            // 
+            // TotalFee
+            // 
+            TotalFee.DataPropertyName = "TotalFee";
+            TotalFee.HeaderText = "TotalFee";
+            TotalFee.MinimumWidth = 6;
+            TotalFee.Name = "TotalFee";
             // 
             // Checkout
             // 
@@ -103,21 +127,6 @@
             Checkout.ImageLayout = DataGridViewImageCellLayout.Zoom;
             Checkout.MinimumWidth = 6;
             Checkout.Name = "Checkout";
-            // 
-            // bookingNoteEntityBindingSource
-            // 
-            bookingNoteEntityBindingSource.DataSource = typeof(Entities.BookingNoteEntity);
-            // 
-            // addBookingButton
-            // 
-            addBookingButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            addBookingButton.Location = new Point(813, 23);
-            addBookingButton.Name = "addBookingButton";
-            addBookingButton.Size = new Size(94, 29);
-            addBookingButton.TabIndex = 1;
-            addBookingButton.Text = "Add";
-            addBookingButton.UseVisualStyleBackColor = true;
-            addBookingButton.Click += addBookingButton_Click;
             // 
             // ListBookingForm
             // 
@@ -145,7 +154,8 @@
         private DataGridViewTextBoxColumn CarName;
         private DataGridViewTextBoxColumn rentAtDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn returnAtDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn realReturnAtDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn GetRealReturnedAt;
+        private DataGridViewTextBoxColumn TotalFee;
         private DataGridViewImageColumn Checkout;
     }
 }

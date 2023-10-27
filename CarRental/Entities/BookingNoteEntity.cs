@@ -13,11 +13,14 @@ namespace CarRental.Entities
         public CustomerEntity? Customer { get; set; }
         public int? CarId { get; set; }
         public CarEntity? Car { get; set; }
+        public float TotalFee { get; set; } = -1;
         public DateTime RentAt { get; set; } = DateTime.Now;
         public DateTime ReturnAt { get; set; } = DateTime.Now;
-        public DateTime RealReturnAt { get; set; } = DateTime.Now;
+        public DateTime RealReturnAt { get; set; } = DateTime.MaxValue;
 
         public string UserName => Customer == null? "-": Customer.Name;
         public string CarName => Car == null ? "-" : $"{Car.CarType} {Car.NameCode}";
+        public string GetRealReturnedAt => IsReturn ? RealReturnAt.ToString("dd/MM/yyyy"): "Not yet";
+        public bool IsReturn => RealReturnAt.Date != DateTime.MaxValue.Date;
     }
 }

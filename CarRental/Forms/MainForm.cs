@@ -4,6 +4,7 @@ using CarRental.Forms.Auth;
 using CarRental.Forms.Booking;
 using CarRental.Forms.Car;
 using CarRental.Forms.Customer;
+using CarRental.Forms.Statistic;
 using CarRental.Helper;
 using ClosedXML.Excel;
 using Ganss.Excel;
@@ -65,6 +66,11 @@ namespace CarRental
         {
             ChangePasswordForm form = new ChangePasswordForm(_context, userName);
             form.ShowDialog();
+        }
+
+        private void monthlyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadForm(new StatisticForm(_context));
         }
 
         //---------------------------------------------------------

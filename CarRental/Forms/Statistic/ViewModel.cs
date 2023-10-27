@@ -29,11 +29,9 @@ namespace CarRental.Forms.Statistic
         private readonly PilotInfo[] _data;
         public ISeries[] Series;
 
-        public Axis[] XAxis = { new Axis { IsVisible = true, SeparatorsPaint = new SolidColorPaint(new SKColor(145, 145, 145)) } };
 
-        public Axis[] YAxis = { new Axis { IsVisible = false} };
 
-        public ViewModel()
+        public ViewModel(PilotInfo[] data)
         {
             // generate some paints for each pilot:
             var paints = Enumerable.Range(0, 7)
@@ -41,16 +39,7 @@ namespace CarRental.Forms.Statistic
                 .ToArray();
 
             // generate some data for each pilot:
-            _data = new PilotInfo[]
-            {
-                new("Tsunoda",   500,  paints[0]),
-                new("Sainz",     450,  paints[1]),
-                new("Riccardo",  520,  paints[2]),
-                new("Bottas",    550,  paints[3]),
-                new("Perez",     660,  paints[4]),
-                new("Verstapen", 920,  paints[5]),
-                new("Hamilton",  1000, paints[6])
-            };
+            _data = data;
 
             var rowSeries = new RowSeries<PilotInfo>
             {

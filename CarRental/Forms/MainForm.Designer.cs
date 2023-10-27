@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             menuStrip1 = new MenuStrip();
             carToolStripMenuItem = new ToolStripMenuItem();
+            importToolStripMenuItem1 = new ToolStripMenuItem();
+            exportToolStripMenuItem1 = new ToolStripMenuItem();
             customerToolStripMenuItem = new ToolStripMenuItem();
             importToolStripMenuItem = new ToolStripMenuItem();
             exportToolStripMenuItem = new ToolStripMenuItem();
@@ -43,8 +45,6 @@
             changePasswordToolStripMenuItem = new ToolStripMenuItem();
             logoutToolStripMenuItem = new ToolStripMenuItem();
             panelMain = new Panel();
-            importToolStripMenuItem1 = new ToolStripMenuItem();
-            exportToolStripMenuItem1 = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -66,6 +66,18 @@
             carToolStripMenuItem.Text = "Car";
             carToolStripMenuItem.Click += carToolStripMenuItem_Click;
             // 
+            // importToolStripMenuItem1
+            // 
+            importToolStripMenuItem1.Name = "importToolStripMenuItem1";
+            importToolStripMenuItem1.Size = new Size(137, 26);
+            importToolStripMenuItem1.Text = "Import";
+            // 
+            // exportToolStripMenuItem1
+            // 
+            exportToolStripMenuItem1.Name = "exportToolStripMenuItem1";
+            exportToolStripMenuItem1.Size = new Size(137, 26);
+            exportToolStripMenuItem1.Text = "Export";
+            // 
             // customerToolStripMenuItem
             // 
             customerToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { importToolStripMenuItem, exportToolStripMenuItem });
@@ -77,14 +89,14 @@
             // importToolStripMenuItem
             // 
             importToolStripMenuItem.Name = "importToolStripMenuItem";
-            importToolStripMenuItem.Size = new Size(224, 26);
+            importToolStripMenuItem.Size = new Size(137, 26);
             importToolStripMenuItem.Text = "Import";
             importToolStripMenuItem.Click += importToolStripMenuItem_Click;
             // 
             // exportToolStripMenuItem
             // 
             exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            exportToolStripMenuItem.Size = new Size(224, 26);
+            exportToolStripMenuItem.Size = new Size(137, 26);
             exportToolStripMenuItem.Text = "Export";
             exportToolStripMenuItem.Click += exportToolStripMenuItem_Click;
             // 
@@ -105,19 +117,20 @@
             // monthlyToolStripMenuItem
             // 
             monthlyToolStripMenuItem.Name = "monthlyToolStripMenuItem";
-            monthlyToolStripMenuItem.Size = new Size(146, 26);
+            monthlyToolStripMenuItem.Size = new Size(224, 26);
             monthlyToolStripMenuItem.Text = "Monthly";
+            monthlyToolStripMenuItem.Click += monthlyToolStripMenuItem_Click;
             // 
             // yearlyToolStripMenuItem
             // 
             yearlyToolStripMenuItem.Name = "yearlyToolStripMenuItem";
-            yearlyToolStripMenuItem.Size = new Size(146, 26);
+            yearlyToolStripMenuItem.Size = new Size(224, 26);
             yearlyToolStripMenuItem.Text = "Yearly";
             // 
             // byCarToolStripMenuItem
             // 
             byCarToolStripMenuItem.Name = "byCarToolStripMenuItem";
-            byCarToolStripMenuItem.Size = new Size(146, 26);
+            byCarToolStripMenuItem.Size = new Size(224, 26);
             byCarToolStripMenuItem.Text = "By Car";
             // 
             // accountToolStripMenuItem
@@ -148,18 +161,6 @@
             panelMain.Name = "panelMain";
             panelMain.Size = new Size(1118, 574);
             panelMain.TabIndex = 1;
-            // 
-            // importToolStripMenuItem1
-            // 
-            importToolStripMenuItem1.Name = "importToolStripMenuItem1";
-            importToolStripMenuItem1.Size = new Size(224, 26);
-            importToolStripMenuItem1.Text = "Import";
-            // 
-            // exportToolStripMenuItem1
-            // 
-            exportToolStripMenuItem1.Name = "exportToolStripMenuItem1";
-            exportToolStripMenuItem1.Size = new Size(224, 26);
-            exportToolStripMenuItem1.Text = "Export";
             // 
             // MainForm
             // 

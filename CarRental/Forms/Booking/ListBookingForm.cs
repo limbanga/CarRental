@@ -46,19 +46,12 @@ namespace CarRental.Forms.Booking
                 return;
             }
 
-            BookingNoteEntity entity = (BookingNoteEntity) dataGridView1.Rows[e.RowIndex].DataBoundItem;
+            BookingNoteEntity entity = (BookingNoteEntity)dataGridView1.Rows[e.RowIndex].DataBoundItem;
 
             if (dataGridView1.Columns[e.ColumnIndex].Name.Equals("Checkout"))
             {
-                CheckoutBookingNoteForm form = new CheckoutBookingNoteForm();
+                CheckoutBookingNoteForm form = new CheckoutBookingNoteForm(entity, _context);
                 form.ShowDialog();
-                //DialogResult = MessageBox.Show($"Do you want to remove {entity.NameCode}", "Confirm",
-                //    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                //if (DialogResult == DialogResult.Yes)
-                //{
-                //    _context.Remove(entity);
-                //    _context.SaveChanges();
-                //}
             }
 
             LoadBooking();

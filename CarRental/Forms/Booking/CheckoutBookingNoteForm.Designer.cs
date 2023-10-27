@@ -33,8 +33,8 @@
             returnAtDateTimePicker = new DateTimePicker();
             label3 = new Label();
             rentAtDateTimePicker = new DateTimePicker();
-            addButton = new Button();
-            priceLabel = new Label();
+            checkoutButton = new Button();
+            bookingFeeLabel = new Label();
             carEntityBindingSource = new BindingSource(components);
             label2 = new Label();
             carComboBox = new ComboBox();
@@ -44,18 +44,23 @@
             label5 = new Label();
             label6 = new Label();
             label7 = new Label();
+            overDueFeeLabel = new Label();
+            totalFeeLabel = new Label();
+            label10 = new Label();
+            realReturnAtLabel = new Label();
             label8 = new Label();
             label9 = new Label();
-            label10 = new Label();
-            label11 = new Label();
+            lateFeeRateTextBox = new TextBox();
+            indemnityTextBox = new TextBox();
             ((System.ComponentModel.ISupportInitialize)carEntityBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)customerEntityBindingSource).BeginInit();
             SuspendLayout();
             // 
             // label4
             // 
+            label4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label4.AutoSize = true;
-            label4.Location = new Point(421, 99);
+            label4.Location = new Point(477, 99);
             label4.Name = "label4";
             label4.Size = new Size(69, 20);
             label4.TabIndex = 22;
@@ -63,8 +68,9 @@
             // 
             // returnAtDateTimePicker
             // 
+            returnAtDateTimePicker.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             returnAtDateTimePicker.Enabled = false;
-            returnAtDateTimePicker.Location = new Point(496, 96);
+            returnAtDateTimePicker.Location = new Point(552, 96);
             returnAtDateTimePicker.Name = "returnAtDateTimePicker";
             returnAtDateTimePicker.Size = new Size(238, 27);
             returnAtDateTimePicker.TabIndex = 21;
@@ -86,25 +92,26 @@
             rentAtDateTimePicker.Size = new Size(239, 27);
             rentAtDateTimePicker.TabIndex = 19;
             // 
-            // addButton
+            // checkoutButton
             // 
-            addButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            addButton.Location = new Point(616, 378);
-            addButton.Name = "addButton";
-            addButton.Size = new Size(118, 35);
-            addButton.TabIndex = 24;
-            addButton.Text = "CheckOut";
-            addButton.UseVisualStyleBackColor = true;
+            checkoutButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            checkoutButton.Location = new Point(672, 378);
+            checkoutButton.Name = "checkoutButton";
+            checkoutButton.Size = new Size(118, 35);
+            checkoutButton.TabIndex = 24;
+            checkoutButton.Text = "Checkout";
+            checkoutButton.UseVisualStyleBackColor = true;
+            checkoutButton.Click += checkoutButton_Click;
             // 
-            // priceLabel
+            // bookingFeeLabel
             // 
-            priceLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            priceLabel.AutoSize = true;
-            priceLabel.Location = new Point(26, 225);
-            priceLabel.Name = "priceLabel";
-            priceLabel.Size = new Size(374, 20);
-            priceLabel.TabIndex = 25;
-            priceLabel.Text = "25/10/2023 - 26/10/2023,      $24 x 2 days,      Total: $48\r\n";
+            bookingFeeLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            bookingFeeLabel.AutoSize = true;
+            bookingFeeLabel.Location = new Point(26, 225);
+            bookingFeeLabel.Name = "bookingFeeLabel";
+            bookingFeeLabel.Size = new Size(374, 20);
+            bookingFeeLabel.TabIndex = 25;
+            bookingFeeLabel.Text = "25/10/2023 - 26/10/2023,      $24 x 2 days,      Total: $48\r\n";
             // 
             // carEntityBindingSource
             // 
@@ -112,8 +119,9 @@
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label2.AutoSize = true;
-            label2.Location = new Point(424, 22);
+            label2.Location = new Point(480, 22);
             label2.Name = "label2";
             label2.Size = new Size(31, 20);
             label2.TabIndex = 17;
@@ -121,11 +129,12 @@
             // 
             // carComboBox
             // 
+            carComboBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             carComboBox.DataSource = carEntityBindingSource;
             carComboBox.DisplayMember = "NameCode";
             carComboBox.Enabled = false;
             carComboBox.FormattingEnabled = true;
-            carComboBox.Location = new Point(496, 19);
+            carComboBox.Location = new Point(552, 19);
             carComboBox.Name = "carComboBox";
             carComboBox.Size = new Size(238, 28);
             carComboBox.TabIndex = 16;
@@ -191,64 +200,113 @@
             label7.TabIndex = 29;
             label7.Text = "Overdue Fee";
             // 
-            // label8
+            // overDueFeeLabel
             // 
-            label8.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            label8.AutoSize = true;
-            label8.Location = new Point(26, 320);
-            label8.Name = "label8";
-            label8.Size = new Size(374, 20);
-            label8.TabIndex = 28;
-            label8.Text = "25/10/2023 - 26/10/2023,      $24 x 2 days,      Total: $48\r\n";
+            overDueFeeLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            overDueFeeLabel.AutoSize = true;
+            overDueFeeLabel.Location = new Point(26, 320);
+            overDueFeeLabel.Name = "overDueFeeLabel";
+            overDueFeeLabel.Size = new Size(374, 20);
+            overDueFeeLabel.TabIndex = 28;
+            overDueFeeLabel.Text = "25/10/2023 - 26/10/2023,      $24 x 2 days,      Total: $48\r\n";
             // 
-            // label9
+            // totalFeeLabel
             // 
-            label9.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label9.Location = new Point(26, 363);
-            label9.Name = "label9";
-            label9.Size = new Size(109, 31);
-            label9.TabIndex = 31;
-            label9.Text = "Total Fee";
+            totalFeeLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            totalFeeLabel.AutoSize = true;
+            totalFeeLabel.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            totalFeeLabel.Location = new Point(26, 363);
+            totalFeeLabel.Name = "totalFeeLabel";
+            totalFeeLabel.Size = new Size(109, 31);
+            totalFeeLabel.TabIndex = 31;
+            totalFeeLabel.Text = "Total Fee";
             // 
             // label10
             // 
+            label10.Anchor = AnchorStyles.Right;
             label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label10.Location = new Point(496, 182);
+            label10.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label10.Location = new Point(477, 143);
             label10.Name = "label10";
-            label10.Size = new Size(141, 28);
+            label10.Size = new Size(168, 31);
             label10.TabIndex = 32;
             label10.Text = "Real Return At";
             // 
-            // label11
+            // realReturnAtLabel
             // 
-            label11.AutoSize = true;
-            label11.Location = new Point(496, 229);
-            label11.Name = "label11";
-            label11.Size = new Size(85, 20);
-            label11.TabIndex = 33;
-            label11.Text = "20/10/2020";
+            realReturnAtLabel.Anchor = AnchorStyles.Right;
+            realReturnAtLabel.AutoSize = true;
+            realReturnAtLabel.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            realReturnAtLabel.Location = new Point(677, 146);
+            realReturnAtLabel.Name = "realReturnAtLabel";
+            realReturnAtLabel.Size = new Size(113, 28);
+            realReturnAtLabel.TabIndex = 33;
+            realReturnAtLabel.Text = "20/10/2020";
+            // 
+            // label8
+            // 
+            label8.Anchor = AnchorStyles.Right;
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label8.Location = new Point(477, 225);
+            label8.Name = "label8";
+            label8.Size = new Size(146, 31);
+            label8.TabIndex = 34;
+            label8.Text = "Late fee rate";
+            // 
+            // label9
+            // 
+            label9.Anchor = AnchorStyles.Right;
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label9.Location = new Point(477, 309);
+            label9.Name = "label9";
+            label9.Size = new Size(159, 31);
+            label9.TabIndex = 35;
+            label9.Text = "Indemnity ($)";
+            // 
+            // lateFeeRateTextBox
+            // 
+            lateFeeRateTextBox.Anchor = AnchorStyles.Right;
+            lateFeeRateTextBox.Enabled = false;
+            lateFeeRateTextBox.Location = new Point(665, 230);
+            lateFeeRateTextBox.Name = "lateFeeRateTextBox";
+            lateFeeRateTextBox.Size = new Size(125, 27);
+            lateFeeRateTextBox.TabIndex = 36;
+            lateFeeRateTextBox.TextChanged += lateFeeRateTextBox_TextChanged;
+            // 
+            // indemnityTextBox
+            // 
+            indemnityTextBox.Anchor = AnchorStyles.Right;
+            indemnityTextBox.Enabled = false;
+            indemnityTextBox.Location = new Point(665, 313);
+            indemnityTextBox.Name = "indemnityTextBox";
+            indemnityTextBox.Size = new Size(125, 27);
+            indemnityTextBox.TabIndex = 37;
+            indemnityTextBox.TextChanged += indemnity_TextChanged;
             // 
             // CheckoutBookingNoteForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(759, 435);
-            Controls.Add(label11);
-            Controls.Add(label10);
+            ClientSize = new Size(815, 435);
+            Controls.Add(indemnityTextBox);
+            Controls.Add(lateFeeRateTextBox);
             Controls.Add(label9);
-            Controls.Add(label7);
             Controls.Add(label8);
+            Controls.Add(realReturnAtLabel);
+            Controls.Add(label10);
+            Controls.Add(totalFeeLabel);
+            Controls.Add(label7);
+            Controls.Add(overDueFeeLabel);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(returnAtDateTimePicker);
             Controls.Add(label3);
             Controls.Add(rentAtDateTimePicker);
-            Controls.Add(addButton);
-            Controls.Add(priceLabel);
+            Controls.Add(checkoutButton);
+            Controls.Add(bookingFeeLabel);
             Controls.Add(label2);
             Controls.Add(carComboBox);
             Controls.Add(label1);
@@ -269,8 +327,8 @@
         private DateTimePicker returnAtDateTimePicker;
         private Label label3;
         private DateTimePicker rentAtDateTimePicker;
-        private Button addButton;
-        private Label priceLabel;
+        private Button checkoutButton;
+        private Label bookingFeeLabel;
         private BindingSource carEntityBindingSource;
         private Label label2;
         private ComboBox carComboBox;
@@ -280,9 +338,13 @@
         private Label label5;
         private Label label6;
         private Label label7;
+        private Label overDueFeeLabel;
+        private Label totalFeeLabel;
+        private Label label10;
+        private Label realReturnAtLabel;
         private Label label8;
         private Label label9;
-        private Label label10;
-        private Label label11;
+        private TextBox lateFeeRateTextBox;
+        private TextBox indemnityTextBox;
     }
 }
