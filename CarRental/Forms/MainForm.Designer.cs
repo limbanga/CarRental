@@ -38,9 +38,6 @@
             exportToolStripMenuItem = new ToolStripMenuItem();
             bookingNoteToolStripMenuItem = new ToolStripMenuItem();
             statisticToolStripMenuItem = new ToolStripMenuItem();
-            monthlyToolStripMenuItem = new ToolStripMenuItem();
-            yearlyToolStripMenuItem = new ToolStripMenuItem();
-            byCarToolStripMenuItem = new ToolStripMenuItem();
             accountToolStripMenuItem = new ToolStripMenuItem();
             changePasswordToolStripMenuItem = new ToolStripMenuItem();
             logoutToolStripMenuItem = new ToolStripMenuItem();
@@ -109,29 +106,10 @@
             // 
             // statisticToolStripMenuItem
             // 
-            statisticToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { monthlyToolStripMenuItem, yearlyToolStripMenuItem, byCarToolStripMenuItem });
             statisticToolStripMenuItem.Name = "statisticToolStripMenuItem";
             statisticToolStripMenuItem.Size = new Size(75, 24);
             statisticToolStripMenuItem.Text = "Statistic";
-            // 
-            // monthlyToolStripMenuItem
-            // 
-            monthlyToolStripMenuItem.Name = "monthlyToolStripMenuItem";
-            monthlyToolStripMenuItem.Size = new Size(224, 26);
-            monthlyToolStripMenuItem.Text = "Monthly";
-            monthlyToolStripMenuItem.Click += monthlyToolStripMenuItem_Click;
-            // 
-            // yearlyToolStripMenuItem
-            // 
-            yearlyToolStripMenuItem.Name = "yearlyToolStripMenuItem";
-            yearlyToolStripMenuItem.Size = new Size(224, 26);
-            yearlyToolStripMenuItem.Text = "Yearly";
-            // 
-            // byCarToolStripMenuItem
-            // 
-            byCarToolStripMenuItem.Name = "byCarToolStripMenuItem";
-            byCarToolStripMenuItem.Size = new Size(224, 26);
-            byCarToolStripMenuItem.Text = "By Car";
+            statisticToolStripMenuItem.Click += statisticToolStripMenuItem_Click;
             // 
             // accountToolStripMenuItem
             // 
@@ -189,9 +167,6 @@
         private ToolStripMenuItem customerToolStripMenuItem;
         private ToolStripMenuItem bookingNoteToolStripMenuItem;
         private ToolStripMenuItem statisticToolStripMenuItem;
-        private ToolStripMenuItem monthlyToolStripMenuItem;
-        private ToolStripMenuItem yearlyToolStripMenuItem;
-        private ToolStripMenuItem byCarToolStripMenuItem;
         private ToolStripMenuItem accountToolStripMenuItem;
         private ToolStripMenuItem changePasswordToolStripMenuItem;
         private ToolStripMenuItem logoutToolStripMenuItem;

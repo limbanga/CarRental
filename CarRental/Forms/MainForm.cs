@@ -68,7 +68,7 @@ namespace CarRental
             form.ShowDialog();
         }
 
-        private void monthlyToolStripMenuItem_Click(object sender, EventArgs e)
+        private void statisticToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LoadForm(new StatisticForm(_context));
         }
@@ -148,5 +148,6 @@ namespace CarRental
                 }
             }
         }
+
     }
 }
