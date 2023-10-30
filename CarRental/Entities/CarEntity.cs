@@ -13,7 +13,7 @@ namespace CarRental.Entities
         public CarType CarType { get; set; }
         public FuelType FuelType { get; set; }
         public string Brand { get; set; } = null!;
-        public float PricePerDay { get; set; } = -1f;
+        public float PricePerDay { get; set; } = 0;
 
         // feature
         public bool Map { get; set; }

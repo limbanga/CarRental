@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChangePasswordForm));
             label1 = new Label();
             saveButton = new Button();
             oldPasswordTextBox = new TextBox();
@@ -108,6 +109,7 @@
             Controls.Add(oldPasswordTextBox);
             Controls.Add(saveButton);
             Controls.Add(label1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ChangePasswordForm";
             Padding = new Padding(20);
             StartPosition = FormStartPosition.CenterParent;

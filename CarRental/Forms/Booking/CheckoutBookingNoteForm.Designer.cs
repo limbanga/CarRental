@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CheckoutBookingNoteForm));
             label4 = new Label();
             returnAtDateTimePicker = new DateTimePicker();
             label3 = new Label();
@@ -311,9 +312,10 @@
             Controls.Add(carComboBox);
             Controls.Add(label1);
             Controls.Add(customerComboBox);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "CheckoutBookingNoteForm";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "CheckoutBookingNote";
+            Text = "Checkout";
             Load += CheckoutBookingNoteForm_Load;
             ((System.ComponentModel.ISupportInitialize)carEntityBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)customerEntityBindingSource).EndInit();

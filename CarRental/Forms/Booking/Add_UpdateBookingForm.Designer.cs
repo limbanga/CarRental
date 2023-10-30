@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Add_UpdateBookingForm));
             customerComboBox = new ComboBox();
             customerEntityBindingSource = new BindingSource(components);
             label1 = new Label();
@@ -442,6 +443,7 @@
             Controls.Add(carComboBox);
             Controls.Add(label1);
             Controls.Add(customerComboBox);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Add_UpdateBookingForm";
             Padding = new Padding(20);
             StartPosition = FormStartPosition.CenterParent;

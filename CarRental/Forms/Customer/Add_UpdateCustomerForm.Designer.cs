@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Add_UpdateCustomerForm));
             label1 = new Label();
             nameTextBox = new TextBox();
             phoneNumberTextBox = new TextBox();
@@ -46,17 +47,17 @@
             label1.TabIndex = 0;
             label1.Text = "Name";
             // 
-            // NameTextBox
+            // nameTextBox
             // 
             nameTextBox.Location = new Point(159, 17);
-            nameTextBox.Name = "NameTextBox";
+            nameTextBox.Name = "nameTextBox";
             nameTextBox.Size = new Size(196, 27);
             nameTextBox.TabIndex = 1;
             // 
-            // PhoneNumberTextBox
+            // phoneNumberTextBox
             // 
             phoneNumberTextBox.Location = new Point(159, 79);
-            phoneNumberTextBox.Name = "PhoneNumberTextBox";
+            phoneNumberTextBox.Name = "phoneNumberTextBox";
             phoneNumberTextBox.Size = new Size(196, 27);
             phoneNumberTextBox.TabIndex = 3;
             // 
@@ -69,10 +70,10 @@
             label2.TabIndex = 2;
             label2.Text = "Phone number";
             // 
-            // AddressTextBox
+            // addressTextBox
             // 
             addressTextBox.Location = new Point(159, 145);
-            addressTextBox.Name = "AddressTextBox";
+            addressTextBox.Name = "addressTextBox";
             addressTextBox.Size = new Size(196, 27);
             addressTextBox.TabIndex = 5;
             // 
@@ -108,6 +109,7 @@
             Controls.Add(label2);
             Controls.Add(nameTextBox);
             Controls.Add(label1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Add_UpdateCustomerForm";
             Padding = new Padding(20);
             StartPosition = FormStartPosition.CenterParent;

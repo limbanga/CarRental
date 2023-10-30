@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Add_UpdateCarForm));
             saveButton = new Button();
             label1 = new Label();
             nameCodeTextBox = new TextBox();
@@ -361,6 +362,7 @@
             Controls.Add(nameCodeTextBox);
             Controls.Add(label1);
             Controls.Add(saveButton);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Add_UpdateCarForm";
             Padding = new Padding(20);
             StartPosition = FormStartPosition.CenterParent;

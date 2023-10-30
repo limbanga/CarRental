@@ -265,7 +265,7 @@ namespace CarRental.Forms.Booking
                 isSpeedWarningKit: SpeedWarningKitCheckBox.Checked
                 );
 
-            if (carComboBox.Items.Count == 0) 
+            if (carComboBox.Items.Count == 0)
             {
                 addButton.Enabled = false;
                 rentAtDateTimePicker.Enabled = false;
