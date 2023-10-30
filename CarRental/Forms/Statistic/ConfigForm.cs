@@ -13,7 +13,7 @@ namespace CarRental.Forms.Statistic
     public partial class ConfigForm : Form
     {
         private readonly StatisticForm _statictisForm;
-
+        private bool _fisrtRender = true;
         public ConfigForm(StatisticForm statictisForm)
         {
             InitializeComponent();
@@ -28,11 +28,80 @@ namespace CarRental.Forms.Statistic
         {
             bindYearCombobox();
             bindMonthCombobox();
+            _fisrtRender = false;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void applyButton_Click(object sender, EventArgs e)
         {
-            _statictisForm.LoadCarBy(2);
+            int year = Convert.ToInt32(yearComboBox.Text);
+            int month = Convert.ToInt32(monthComboBox.Text);
+
+            if (salesRadioButton.Checked)
+            {
+                if (yearRadioButton.Checked)
+                {
+                    if (noneGroupRadioButton.Checked)
+                    {
+                        _statictisForm.LoadSale(year);
+                    }
+                    else if (carTypeRadioButton.Checked)
+                    {
+                        _statictisForm.LoadSaleGroupBy(year, 1);
+                    }
+                    else
+                    {
+                        _statictisForm.LoadSaleGroupBy(year, 2);
+                    }
+                }
+                else
+                {
+                    if (noneGroupRadioButton.Checked)
+                    {
+                        _statictisForm.LoadSale(year, month);
+                    }
+                    else if (carTypeRadioButton.Checked)
+                    {
+                        _statictisForm.LoadSaleGroupBy(year, month, 1);
+                    }
+                    else
+                    {
+                        _statictisForm.LoadSaleGroupBy(year, month, 2);
+                    }
+                }
+            }
+            else
+            {
+                if (yearRadioButton.Checked)
+                {
+                    if (noneGroupRadioButton.Checked)
+                    {
+                        _statictisForm.LoadQuantity(year);
+                    }
+                    else if (carTypeRadioButton.Checked)
+                    {
+                        _statictisForm.LoadQuantityGroupBy(year, 1);
+                    }
+                    else
+                    {
+                        _statictisForm.LoadQuantityGroupBy(year, 2);
+                    }
+                }
+                else
+                {
+                    if (noneGroupRadioButton.Checked)
+                    {
+                        _statictisForm.LoadQuantity(year, month);
+                    }
+                    else if (carTypeRadioButton.Checked)
+                    {
+                        _statictisForm.LoadQuantityGroupBy(year, month, 1);
+                    }
+                    else
+                    {
+                        _statictisForm.LoadQuantityGroupBy(year, month, 2);
+                    }
+                }
+            }
             Close();
         }
 
@@ -43,7 +112,10 @@ namespace CarRental.Forms.Statistic
 
         private void yearComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (!_fisrtRender)
+            {
+                bindMonthCombobox();
+            }
         }
 
         private void monthComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -57,9 +129,8 @@ namespace CarRental.Forms.Statistic
 
         private void bindYearCombobox()
         {
-            yearComboBox.Items.Clear();
             List<int> list = new List<int>();
-            for (int i = 2022; i <= DateTime.Now.Year; i++)
+            for (int i = DateTime.Now.Year; i >= 2022 ; i--)
             {
                 list.Add(i);
             }
@@ -68,12 +139,18 @@ namespace CarRental.Forms.Statistic
 
         private void bindMonthCombobox()
         {
-            monthComboBox.Items.Clear();
-            int[] months = new int[12];
-            for (int i = 1; i <= 12; i++)
+            int maxMonth = 12;
+            if (Convert.ToInt32(yearComboBox.Text) == DateTime.Now.Year)
             {
-                months[i - 1] = i;
+                maxMonth = DateTime.Now.Month;
             }
+
+            List<int> months = new List<int>();
+            for (int i = maxMonth; i >= 1; i--)
+            {
+                months.Add(i);
+            }
+
             monthComboBox.DataSource = months;
         }
 

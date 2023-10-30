@@ -41,9 +41,9 @@
             label2 = new Label();
             monthComboBox = new ComboBox();
             groupBox3 = new GroupBox();
-            radioButton3 = new RadioButton();
+            carTypeRadioButton = new RadioButton();
             radioButton1 = new RadioButton();
-            radioButton2 = new RadioButton();
+            noneGroupRadioButton = new RadioButton();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -58,7 +58,7 @@
             applyButton.TabIndex = 4;
             applyButton.Text = "Apply";
             applyButton.UseVisualStyleBackColor = true;
-            applyButton.Click += button1_Click;
+            applyButton.Click += applyButton_Click;
             // 
             // groupBox1
             // 
@@ -173,9 +173,9 @@
             // groupBox3
             // 
             groupBox3.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            groupBox3.Controls.Add(radioButton3);
+            groupBox3.Controls.Add(carTypeRadioButton);
             groupBox3.Controls.Add(radioButton1);
-            groupBox3.Controls.Add(radioButton2);
+            groupBox3.Controls.Add(noneGroupRadioButton);
             groupBox3.Location = new Point(25, 204);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(440, 71);
@@ -183,15 +183,15 @@
             groupBox3.TabStop = false;
             groupBox3.Text = "Group by";
             // 
-            // radioButton3
+            // carTypeRadioButton
             // 
-            radioButton3.AutoSize = true;
-            radioButton3.Location = new Point(176, 29);
-            radioButton3.Name = "radioButton3";
-            radioButton3.Size = new Size(83, 24);
-            radioButton3.TabIndex = 2;
-            radioButton3.Text = "CarType";
-            radioButton3.UseVisualStyleBackColor = true;
+            carTypeRadioButton.AutoSize = true;
+            carTypeRadioButton.Location = new Point(176, 29);
+            carTypeRadioButton.Name = "carTypeRadioButton";
+            carTypeRadioButton.Size = new Size(83, 24);
+            carTypeRadioButton.TabIndex = 2;
+            carTypeRadioButton.Text = "CarType";
+            carTypeRadioButton.UseVisualStyleBackColor = true;
             // 
             // radioButton1
             // 
@@ -203,17 +203,17 @@
             radioButton1.Text = "CarBrand";
             radioButton1.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // noneGroupRadioButton
             // 
-            radioButton2.AutoSize = true;
-            radioButton2.Checked = true;
-            radioButton2.Location = new Point(27, 29);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(66, 24);
-            radioButton2.TabIndex = 0;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "None";
-            radioButton2.UseVisualStyleBackColor = true;
+            noneGroupRadioButton.AutoSize = true;
+            noneGroupRadioButton.Checked = true;
+            noneGroupRadioButton.Location = new Point(27, 29);
+            noneGroupRadioButton.Name = "noneGroupRadioButton";
+            noneGroupRadioButton.Size = new Size(66, 24);
+            noneGroupRadioButton.TabIndex = 0;
+            noneGroupRadioButton.TabStop = true;
+            noneGroupRadioButton.Text = "None";
+            noneGroupRadioButton.UseVisualStyleBackColor = true;
             // 
             // ConfigForm
             // 
@@ -258,7 +258,7 @@
         private ComboBox monthComboBox;
         private GroupBox groupBox3;
         private RadioButton radioButton1;
-        private RadioButton radioButton2;
-        private RadioButton radioButton3;
+        private RadioButton noneGroupRadioButton;
+        private RadioButton carTypeRadioButton;
     }
 }

@@ -11,7 +11,7 @@ namespace CarRental.Forms.Statistic
 {
     public class PilotInfo : ObservableValue
     {
-        public PilotInfo(string name, int value, SolidColorPaint paint)
+        public PilotInfo(string name, double value, SolidColorPaint paint)
         {
             Name = name;
             Paint = paint;
