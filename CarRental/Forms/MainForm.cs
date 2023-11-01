@@ -5,6 +5,7 @@ using CarRental.Forms.Auth;
 using CarRental.Forms.Booking;
 using CarRental.Forms.Car;
 using CarRental.Forms.Customer;
+using CarRental.Forms.Staff;
 using CarRental.Forms.Statistic;
 using CarRental.Helper;
 using ClosedXML.Excel;
@@ -16,7 +17,7 @@ namespace CarRental
     public partial class MainForm : Form
     {
         CarRentalContext _context;
-        public string userName = null!;
+        public AppUserEntity user = null!;
 
         public MainForm()
         {
@@ -33,6 +34,11 @@ namespace CarRental
             LoginForm form = new LoginForm(_context, this);
             form.ShowDialog();
             Hide();
+
+            if (user.Role != AppUserRole.Admin)
+            {
+                staffToolStripMenuItem.Visible = false;
+            }
 
             LoadForm(new ListCarForm(_context));
             Show();
@@ -59,13 +65,18 @@ namespace CarRental
             LoginForm form = new LoginForm(_context, this);
             form.ShowDialog();
 
+            if (user.Role != AppUserRole.Admin)
+            {
+                staffToolStripMenuItem.Visible = false;
+            }
+
             LoadForm(new ListCarForm(_context));
             Show();
         }
 
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ChangePasswordForm form = new ChangePasswordForm(_context, userName);
+            ChangePasswordForm form = new ChangePasswordForm(_context, user.Name);
             form.ShowDialog();
         }
 
@@ -228,7 +239,7 @@ namespace CarRental
 
         private void staffToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LoadForm(new StatisticForm(_context));
+            LoadForm(new ListStaffForm(_context));
         }
 
         //---------------------------------------------------------

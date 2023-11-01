@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarRental.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,18 @@ namespace CarRental.Forms.Staff
 {
     public partial class ListStaffForm : Form
     {
-        public ListStaffForm()
+        CarRentalContext _context;
+
+        public ListStaffForm(CarRentalContext context)
         {
             InitializeComponent();
+            _context = context;
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+           Add_UpdateStaffForm form = new Add_UpdateStaffForm(_context);
+           form.ShowDialog();
         }
     }
 }

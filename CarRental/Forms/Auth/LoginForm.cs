@@ -58,7 +58,7 @@ namespace CarRental.Forms.Auth
                 return;
             }
 
-            _mainForm.userName = userName;
+            _mainForm.user = user;
 
             _isExit = false;
             Close();

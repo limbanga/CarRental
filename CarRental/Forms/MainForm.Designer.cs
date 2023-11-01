@@ -41,15 +41,15 @@
             accountToolStripMenuItem = new ToolStripMenuItem();
             changePasswordToolStripMenuItem = new ToolStripMenuItem();
             logoutToolStripMenuItem = new ToolStripMenuItem();
-            panelMain = new Panel();
             staffToolStripMenuItem = new ToolStripMenuItem();
+            panelMain = new Panel();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { carToolStripMenuItem, customerToolStripMenuItem, bookingNoteToolStripMenuItem, statisticToolStripMenuItem, accountToolStripMenuItem, staffToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { carToolStripMenuItem, customerToolStripMenuItem, bookingNoteToolStripMenuItem, statisticToolStripMenuItem, staffToolStripMenuItem, accountToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1118, 28);
@@ -67,14 +67,14 @@
             // importToolStripMenuItem1
             // 
             importToolStripMenuItem1.Name = "importToolStripMenuItem1";
-            importToolStripMenuItem1.Size = new Size(224, 26);
+            importToolStripMenuItem1.Size = new Size(137, 26);
             importToolStripMenuItem1.Text = "Import";
             importToolStripMenuItem1.Click += importToolStripMenuItem1_Click;
             // 
             // exportToolStripMenuItem1
             // 
             exportToolStripMenuItem1.Name = "exportToolStripMenuItem1";
-            exportToolStripMenuItem1.Size = new Size(224, 26);
+            exportToolStripMenuItem1.Size = new Size(137, 26);
             exportToolStripMenuItem1.Text = "Export";
             exportToolStripMenuItem1.Click += exportToolStripMenuItem1_Click;
             // 
@@ -124,16 +124,23 @@
             // changePasswordToolStripMenuItem
             // 
             changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
-            changePasswordToolStripMenuItem.Size = new Size(224, 26);
+            changePasswordToolStripMenuItem.Size = new Size(203, 26);
             changePasswordToolStripMenuItem.Text = "ChangePassword";
             changePasswordToolStripMenuItem.Click += changePasswordToolStripMenuItem_Click;
             // 
             // logoutToolStripMenuItem
             // 
             logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            logoutToolStripMenuItem.Size = new Size(224, 26);
+            logoutToolStripMenuItem.Size = new Size(203, 26);
             logoutToolStripMenuItem.Text = "Logout";
             logoutToolStripMenuItem.Click += logoutToolStripMenuItem_Click;
+            // 
+            // staffToolStripMenuItem
+            // 
+            staffToolStripMenuItem.Name = "staffToolStripMenuItem";
+            staffToolStripMenuItem.Size = new Size(54, 24);
+            staffToolStripMenuItem.Text = "Staff";
+            staffToolStripMenuItem.Click += staffToolStripMenuItem_Click;
             // 
             // panelMain
             // 
@@ -142,13 +149,6 @@
             panelMain.Name = "panelMain";
             panelMain.Size = new Size(1118, 574);
             panelMain.TabIndex = 1;
-            // 
-            // staffToolStripMenuItem
-            // 
-            staffToolStripMenuItem.Name = "staffToolStripMenuItem";
-            staffToolStripMenuItem.Size = new Size(54, 24);
-            staffToolStripMenuItem.Text = "Staff";
-            staffToolStripMenuItem.Click += staffToolStripMenuItem_Click;
             // 
             // MainForm
             // 
