@@ -79,7 +79,7 @@ namespace CarRental.Forms.Car
             brandTextBox.Text = carEntity.Brand;
             pricePerDayTextBox.Text = carEntity.PricePerDay.ToString();
             carTypeComboBox.SelectedItem = carEntity.CarType;
-
+            nameTextBox.Text = carEntity.CarName.ToString();
 
             mapCheckBox.Checked = carEntity.Map;
             marginalCameraCheckBox.Checked = carEntity.MarginalCamera;
@@ -124,12 +124,23 @@ namespace CarRental.Forms.Car
                 throw new ValidateException("Brand can't be blank.");
             }
 
+            if (string.IsNullOrWhiteSpace(nameTextBox.Text))
+            {
+                throw new ValidateException("Car name can't be blank.");
+            }
+
             double pricePerDay;
             if (!Double.TryParse(pricePerDayTextBox.Text, out pricePerDay))
             {
                 throw new ValidateException("Price per day must be number.");
             }
 
+            if (pricePerDay < 0)
+            {
+                throw new ValidateException("Price per day must be larger than 0.");
+            }
+
+            entity.CarName = nameTextBox.Text;
             entity.NameCode = nameCodeTextBox.Text;
             entity.Brand = brandTextBox.Text;
             entity.PricePerDay = (float)pricePerDay;

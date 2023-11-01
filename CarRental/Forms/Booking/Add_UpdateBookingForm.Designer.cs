@@ -63,6 +63,10 @@
             addButton = new Button();
             priceLabel = new Label();
             clearFillterButton = new Button();
+            label5 = new Label();
+            label6 = new Label();
+            departureRichTextBox = new RichTextBox();
+            DestinationRichTextBox = new RichTextBox();
             ((System.ComponentModel.ISupportInitialize)customerEntityBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)carEntityBindingSource).BeginInit();
             groupBox1.SuspendLayout();
@@ -395,7 +399,7 @@
             // addButton
             // 
             addButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            addButton.Location = new Point(637, 512);
+            addButton.Location = new Point(637, 735);
             addButton.Name = "addButton";
             addButton.Size = new Size(94, 29);
             addButton.TabIndex = 10;
@@ -408,7 +412,7 @@
             priceLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             priceLabel.AutoSize = true;
             priceLabel.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            priceLabel.Location = new Point(34, 513);
+            priceLabel.Location = new Point(23, 739);
             priceLabel.Name = "priceLabel";
             priceLabel.Size = new Size(518, 28);
             priceLabel.TabIndex = 12;
@@ -425,11 +429,51 @@
             clearFillterButton.UseVisualStyleBackColor = true;
             clearFillterButton.Click += clearFillterButton_Click;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(23, 501);
+            label5.Name = "label5";
+            label5.Size = new Size(76, 20);
+            label5.TabIndex = 14;
+            label5.Text = "Departure";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(421, 501);
+            label6.Name = "label6";
+            label6.Size = new Size(85, 20);
+            label6.TabIndex = 15;
+            label6.Text = "Destination";
+            // 
+            // departureRichTextBox
+            // 
+            departureRichTextBox.Anchor = AnchorStyles.Left;
+            departureRichTextBox.Location = new Point(23, 532);
+            departureRichTextBox.Name = "departureRichTextBox";
+            departureRichTextBox.Size = new Size(319, 162);
+            departureRichTextBox.TabIndex = 16;
+            departureRichTextBox.Text = "";
+            // 
+            // DestinationRichTextBox
+            // 
+            DestinationRichTextBox.Anchor = AnchorStyles.Right;
+            DestinationRichTextBox.Location = new Point(418, 532);
+            DestinationRichTextBox.Name = "DestinationRichTextBox";
+            DestinationRichTextBox.Size = new Size(310, 162);
+            DestinationRichTextBox.TabIndex = 17;
+            DestinationRichTextBox.Text = "";
+            // 
             // Add_UpdateBookingForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(754, 564);
+            ClientSize = new Size(754, 787);
+            Controls.Add(DestinationRichTextBox);
+            Controls.Add(departureRichTextBox);
+            Controls.Add(label6);
+            Controls.Add(label5);
             Controls.Add(clearFillterButton);
             Controls.Add(priceLabel);
             Controls.Add(addButton);
@@ -443,7 +487,9 @@
             Controls.Add(carComboBox);
             Controls.Add(label1);
             Controls.Add(customerComboBox);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "Add_UpdateBookingForm";
             Padding = new Padding(20);
             StartPosition = FormStartPosition.CenterParent;
@@ -494,5 +540,9 @@
         private CheckBox SpeedWarningKitCheckBox;
         private CheckBox reversingCameraCheckBox;
         private Button clearFillterButton;
+        private Label label5;
+        private Label label6;
+        private RichTextBox departureRichTextBox;
+        private RichTextBox DestinationRichTextBox;
     }
 }

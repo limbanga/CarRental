@@ -56,7 +56,7 @@ namespace CarRental.Forms.Booking
                     MessageBox.Show("Late fee rate should be greater than 1.", "Warning",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                BindValue();
+                PreviewTotalFee();
             }
         }
 
@@ -71,8 +71,14 @@ namespace CarRental.Forms.Booking
                     MessageBox.Show("Indemnity should be greater than 0.", "Warning",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                BindValue();
+                PreviewTotalFee();
             }
+        }
+
+        private void RealReturnAtDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            realReturnAt = RealReturnAtDateTimePicker.Value;
+            PreviewTotalFee();
         }
 
         private void checkoutButton_Click(object sender, EventArgs e)
@@ -92,33 +98,55 @@ namespace CarRental.Forms.Booking
             }
         }
 
+        #region hiden event
+        private void lateFeeRateTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && (((TextBox)sender).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void indemnityTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+               (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && (((TextBox)sender).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+        #endregion
+
         //------------------------------------------------
         // fun
         //------------------------------------------------
 
         private void BindValue()
         {
-            totalFee = indemnity;
 
             rentAtDateTimePicker.Value = _entity.RentAt;
             returnAtDateTimePicker.Value = _entity.ReturnAt;
-            realReturnAtLabel.Text = _entity.IsReturn ? _entity.RealReturnAt.ToString("dd/MM/yyyy") : DateTime.Now.ToString("dd/MM/yyyy");
-
-            customerComboBox.Text = _entity.Customer!.ComboboxDisplay;
-            carComboBox.Text = _entity.CarName;
-
-            int dayCount = DateHelper.CountDayInclusive(_entity.RentAt, _entity.ReturnAt);
-            float carPrice = _entity.Car!.PricePerDay;
-            float bookingFee = dayCount * carPrice;
-            totalFee += bookingFee;
-
-            bookingFeeLabel.Text =
-                $"{_entity.RentAt.ToString("dd/MM/yyyy")} - {_entity.ReturnAt.ToString("dd/MM/yyyy")}" +
-                $",      ${carPrice} x {dayCount} days,      Total: ${bookingFee}";
-
+            RealReturnAtDateTimePicker.Value = DateTime.Now;
+            departureRichTextBox.Text = _entity.Departure;
+            DestinationRichTextBox.Text = _entity.Destination;
 
             if (_entity.IsReturn)
             {
+                RealReturnAtDateTimePicker.Value = _entity.RealReturnAt;
+                RealReturnAtDateTimePicker.Enabled = false;
                 checkoutButton.Enabled = false;
                 checkoutButton.Text = "Checked out";
 
@@ -129,6 +157,26 @@ namespace CarRental.Forms.Booking
                 indemnityTextBox.Enabled = true;
                 lateFeeRateTextBox.Enabled = true;
             }
+
+            customerComboBox.Text = _entity.Customer!.ComboboxDisplay;
+            carComboBox.Text = _entity.CarName;
+
+            PreviewTotalFee();
+        }
+
+        private void PreviewTotalFee()
+        {
+            totalFee = indemnity;
+
+            int dayCount = DateHelper.CountDayInclusive(_entity.RentAt, _entity.ReturnAt);
+            float carPrice = _entity.Car!.PricePerDay;
+            float bookingFee = dayCount * carPrice;
+            totalFee += bookingFee;
+
+            bookingFeeLabel.Text =
+                $"{_entity.RentAt.ToString("dd/MM/yyyy")} - {_entity.ReturnAt.ToString("dd/MM/yyyy")}" +
+                $",      ${carPrice} x {dayCount} days,      Total: ${bookingFee}";
+
 
             if (realReturnAt.Date <= _entity.ReturnAt.Date)
             {
@@ -142,7 +190,7 @@ namespace CarRental.Forms.Booking
                 totalFee += overDueFee;
 
                 overDueFeeLabel.Text =
-                    $"{realReturnAt.ToString("dd/MM/yyyy")} - {aDateAfterDue.ToString("dd/MM/yyyy")},      " +
+                    $"{aDateAfterDue.ToString("dd/MM/yyyy")} - {realReturnAt.ToString("dd/MM/yyyy")},      " +
                     $"${carPrice} x {countOverDays} days x {lateFeeRate},      Total: ${overDueFee}";
             }
 

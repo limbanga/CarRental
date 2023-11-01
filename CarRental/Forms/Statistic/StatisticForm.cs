@@ -27,11 +27,6 @@ namespace CarRental.Forms.Statistic
     {
         CarRentalContext _context;
 
-        /*
-         NGHIEN CUU SAU
-        https://livecharts.dev/docs/WinForms/2.0.0-rc1/CartesianChart.Cartesian%20chart%20control#axes
-         */
-
         public StatisticForm(CarRentalContext context)
         {
             InitializeComponent();

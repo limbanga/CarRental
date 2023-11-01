@@ -1,4 +1,4 @@
-﻿using CarRental.Data;
+﻿    using CarRental.Data;
 using CarRental.Entities;
 using System;
 using System.Collections.Generic;
@@ -32,7 +32,7 @@ namespace CarRental.Forms.Auth
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            if (_context.AppUsers.ToList().Count <= 0)
+            if (!_context.AppUsers.Any())
             {
                 CreateAdminAccount();
             }
@@ -85,7 +85,8 @@ namespace CarRental.Forms.Auth
         {
             AppUserEntity admin = new AppUserEntity()
             {
-                Name = "admin"
+                Name = "admin",
+                Role = AppUserRole.Admin,
             };
 
             admin.Password = BCrypt.Net.BCrypt.HashPassword("admin");

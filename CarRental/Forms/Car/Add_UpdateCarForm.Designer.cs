@@ -57,6 +57,8 @@
             ElectricityRadioButton = new RadioButton();
             dieselRadioButton = new RadioButton();
             gasolineRadioButton = new RadioButton();
+            label5 = new Label();
+            nameTextBox = new TextBox();
             groupBox1.SuspendLayout();
             FuelGroupBox.SuspendLayout();
             SuspendLayout();
@@ -64,7 +66,7 @@
             // saveButton
             // 
             saveButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            saveButton.Location = new Point(630, 456);
+            saveButton.Location = new Point(630, 528);
             saveButton.Name = "saveButton";
             saveButton.Size = new Size(94, 29);
             saveButton.TabIndex = 0;
@@ -154,7 +156,7 @@
             groupBox1.Controls.Add(tireSensorCheckBox);
             groupBox1.Controls.Add(marginalCameraCheckBox);
             groupBox1.Controls.Add(mapCheckBox);
-            groupBox1.Location = new Point(23, 148);
+            groupBox1.Location = new Point(23, 206);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(700, 211);
             groupBox1.TabIndex = 9;
@@ -307,7 +309,7 @@
             FuelGroupBox.Controls.Add(ElectricityRadioButton);
             FuelGroupBox.Controls.Add(dieselRadioButton);
             FuelGroupBox.Controls.Add(gasolineRadioButton);
-            FuelGroupBox.Location = new Point(23, 373);
+            FuelGroupBox.Location = new Point(23, 440);
             FuelGroupBox.Name = "FuelGroupBox";
             FuelGroupBox.Size = new Size(700, 66);
             FuelGroupBox.TabIndex = 10;
@@ -346,11 +348,29 @@
             gasolineRadioButton.Text = "Gasoline";
             gasolineRadioButton.UseVisualStyleBackColor = true;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(23, 147);
+            label5.Name = "label5";
+            label5.Size = new Size(49, 20);
+            label5.TabIndex = 11;
+            label5.Text = "Name";
+            // 
+            // nameTextBox
+            // 
+            nameTextBox.Location = new Point(111, 144);
+            nameTextBox.Name = "nameTextBox";
+            nameTextBox.Size = new Size(228, 27);
+            nameTextBox.TabIndex = 12;
+            // 
             // Add_UpdateCarForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(746, 508);
+            ClientSize = new Size(746, 580);
+            Controls.Add(nameTextBox);
+            Controls.Add(label5);
             Controls.Add(FuelGroupBox);
             Controls.Add(groupBox1);
             Controls.Add(pricePerDayTextBox);
@@ -406,5 +426,7 @@
         private RadioButton ElectricityRadioButton;
         private RadioButton dieselRadioButton;
         private RadioButton gasolineRadioButton;
+        private Label label5;
+        private TextBox nameTextBox;
     }
 }

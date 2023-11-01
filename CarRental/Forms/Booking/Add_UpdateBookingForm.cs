@@ -51,8 +51,11 @@ namespace CarRental.Forms.Booking
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 rentAtDateTimePicker.Value = returnAtDateTimePicker.Value;
             }
-
-            PreviewPrice();
+            else
+            {
+                Fillter();
+                PreviewPrice();
+            }
         }
 
         private void returnAtDateTimePicker_ValueChanged(object sender, EventArgs e)
@@ -63,8 +66,11 @@ namespace CarRental.Forms.Booking
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 returnAtDateTimePicker.Value = rentAtDateTimePicker.Value;
             }
-
-            PreviewPrice();
+            else
+            {
+                Fillter();
+                PreviewPrice();
+            }
         }
         #endregion
         //---------------------------------------------------------------
@@ -163,14 +169,25 @@ namespace CarRental.Forms.Booking
 
         private void addButton_Click(object sender, EventArgs e)
         {
+             var isConfirm = MessageBox.Show("Are you sure to create new booking note?", "Confirm",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+            if (isConfirm != DialogResult.OK)
+            {
+                return;
+            }
+
             try
             {
+                ValidateInput();
                 BookingNoteEntity entity = new BookingNoteEntity
                 {
                     CustomerId = (int)customerComboBox.SelectedValue,
                     CarId = (int)carComboBox.SelectedValue,
                     RentAt = rentAtDateTimePicker.Value,
-                    ReturnAt = returnAtDateTimePicker.Value
+                    ReturnAt = returnAtDateTimePicker.Value,
+                    Departure = departureRichTextBox.Text,
+                    Destination = DestinationRichTextBox.Text,
                 };
 
                 AddBooking(entity);
@@ -181,9 +198,27 @@ namespace CarRental.Forms.Booking
                 MessageBox.Show(ex.Message, "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            catch (ValidateException ex)
+            {
+                MessageBox.Show(ex.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             catch (Exception)
             {
                 throw;
+            }
+        }
+
+        private void ValidateInput()
+        {
+            if (string.IsNullOrWhiteSpace(departureRichTextBox.Text))
+            {
+                throw new ValidateException("Departure can't be blank.");
+            }
+
+            if (string.IsNullOrWhiteSpace(DestinationRichTextBox.Text))
+            {
+                throw new ValidateException("Destination can't be blank.");
             }
         }
 
@@ -221,7 +256,7 @@ namespace CarRental.Forms.Booking
             float totalPrice = car.PricePerDay * numOfDaysRent;
 
             priceLabel.Text =
-                $"{rentAt.ToString("dd/mm/yyyy")} - {returnAt.ToString("dd/mm/yyyy")}," +
+                $"{rentAt.ToString("dd/MM/yyyy")} - {returnAt.ToString("dd/MM/yyyy")}," +
                 $"      ${car.PricePerDay} x {numOfDaysRent} days,      Total: ${totalPrice}";
         }
 
@@ -284,7 +319,7 @@ namespace CarRental.Forms.Booking
 
         private void AddBooking(BookingNoteEntity entity)
         {
-            BookingNoteEntity? isCarBusy = _context.BookingNotes.Where(x =>
+            var isCarBusy = _context.BookingNotes.Where(x =>
                 x.CarId.Equals(entity.CarId) &&
                 (
                     (x.RentAt <= entity.ReturnAt && x.RentAt >= entity.RentAt) ||
@@ -402,7 +437,28 @@ namespace CarRental.Forms.Booking
 
             //MessageBox.Show("Test" + query.ToQueryString());
 
-            carComboBox.DataSource = query.ToList();
+            // get all car
+            var carList = query.ToList();
+            // get car not busy
+            List<CarEntity> avaiableCarList = new List<CarEntity>();
+            foreach (var car in carList)
+            {
+                var isCarBusy = _context.BookingNotes.Where(x =>
+                    x.CarId.Equals(car.Id) &&
+                    (
+                        (x.RentAt <= returnAtDateTimePicker.Value && x.RentAt >= rentAtDateTimePicker.Value) ||
+                        (x.ReturnAt <= returnAtDateTimePicker.Value && x.ReturnAt >= rentAtDateTimePicker.Value) ||
+                        (x.RentAt <= rentAtDateTimePicker.Value && x.ReturnAt >= returnAtDateTimePicker.Value)
+                    )
+                ).Any();
+
+                if (!isCarBusy)
+                {
+                    avaiableCarList.Add(car);
+                }
+            }
+
+            carComboBox.DataSource = avaiableCarList;
         }
 
     }

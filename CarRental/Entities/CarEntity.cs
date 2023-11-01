@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,10 +10,15 @@ namespace CarRental.Entities
     public class CarEntity
     {
         public int Id { get; set; }
+        [StringLength(50)]
+        public string CarName { get; set; } = null!;
+        [StringLength(15)]
         public string NameCode { get; set; } = null!;
         public CarType CarType { get; set; }
         public FuelType FuelType { get; set; }
+        [StringLength(15)]
         public string Brand { get; set; } = null!;
+        [Range(0, double.MaxValue)]
         public float PricePerDay { get; set; } = 0;
 
         // feature

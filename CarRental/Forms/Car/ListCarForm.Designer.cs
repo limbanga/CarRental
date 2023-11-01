@@ -36,6 +36,7 @@
             searchTextBox = new TextBox();
             searchButton = new Button();
             nameCodeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            CarName = new DataGridViewTextBoxColumn();
             carTypeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             FuelType = new DataGridViewTextBoxColumn();
             brandDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -55,7 +56,7 @@
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { nameCodeDataGridViewTextBoxColumn, carTypeDataGridViewTextBoxColumn, FuelType, brandDataGridViewTextBoxColumn, PricePerDay, Remove });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { nameCodeDataGridViewTextBoxColumn, CarName, carTypeDataGridViewTextBoxColumn, FuelType, brandDataGridViewTextBoxColumn, PricePerDay, Remove });
             dataGridView1.DataSource = carEntityBindingSource;
             dataGridView1.Location = new Point(23, 85);
             dataGridView1.Name = "dataGridView1";
@@ -99,6 +100,13 @@
             nameCodeDataGridViewTextBoxColumn.HeaderText = "NameCode";
             nameCodeDataGridViewTextBoxColumn.MinimumWidth = 6;
             nameCodeDataGridViewTextBoxColumn.Name = "nameCodeDataGridViewTextBoxColumn";
+            // 
+            // CarName
+            // 
+            CarName.DataPropertyName = "CarName";
+            CarName.HeaderText = "CarName";
+            CarName.MinimumWidth = 6;
+            CarName.Name = "CarName";
             // 
             // carTypeDataGridViewTextBoxColumn
             // 
@@ -165,6 +173,7 @@
         private TextBox searchTextBox;
         private Button searchButton;
         private DataGridViewTextBoxColumn nameCodeDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn CarName;
         private DataGridViewTextBoxColumn carTypeDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn FuelType;
         private DataGridViewTextBoxColumn brandDataGridViewTextBoxColumn;
