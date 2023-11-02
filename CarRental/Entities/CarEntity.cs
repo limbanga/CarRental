@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ClosedXML.Attributes;
+using DocumentFormat.OpenXml.Wordprocessing;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -36,5 +38,8 @@ namespace CarRental.Entities
         public bool GPS { get; set; }
         public bool SpareTire { get; set; }
         public bool Camera360 { get; set; }
+
+        [XLColumn(Ignore = true)]
+        public string ComboboxDisplay => $"{NameCode} - {CarName}";
     }
 }

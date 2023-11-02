@@ -169,8 +169,8 @@ namespace CarRental.Forms.Booking
 
         private void addButton_Click(object sender, EventArgs e)
         {
-             var isConfirm = MessageBox.Show("Are you sure to create new booking note?", "Confirm",
-                MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            var isConfirm = MessageBox.Show("Are you sure to create new booking note?", "Confirm",
+               MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
             if (isConfirm != DialogResult.OK)
             {

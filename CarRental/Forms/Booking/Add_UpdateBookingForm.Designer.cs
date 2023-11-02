@@ -111,7 +111,7 @@
             // carComboBox
             // 
             carComboBox.DataSource = carEntityBindingSource;
-            carComboBox.DisplayMember = "NameCode";
+            carComboBox.DisplayMember = "ComboboxDisplay";
             carComboBox.FormattingEnabled = true;
             carComboBox.Location = new Point(493, 41);
             carComboBox.Name = "carComboBox";
