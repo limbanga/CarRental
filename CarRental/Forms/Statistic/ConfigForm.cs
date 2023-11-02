@@ -105,11 +105,6 @@ namespace CarRental.Forms.Statistic
             Close();
         }
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void yearComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (!_fisrtRender)

@@ -15,10 +15,12 @@ namespace CarRental.Forms.Car
     public partial class ListCarForm : Form
     {
         private CarRentalContext _context;
-        public ListCarForm(CarRentalContext context)
+        private MainForm _mainForm;
+        public ListCarForm(MainForm mainForm)
         {
             InitializeComponent();
-            _context = context;
+            _context = mainForm._context;
+            _mainForm = mainForm;
         }
 
         //------------------------------------------------------------
@@ -27,12 +29,18 @@ namespace CarRental.Forms.Car
 
         private void ListCarForm_Load(object sender, EventArgs e)
         {
+            if (_mainForm.user.Role != AppUserRole.Admin)
+            {
+                addCarButton.Enabled = false;
+                Remove.Visible = false;
+            }
+
             loadCarList();
         }
 
         private void AddCarButton_Click(object sender, EventArgs e)
         {
-            Add_UpdateCarForm form = new Add_UpdateCarForm(_context);
+            Add_UpdateCarForm form = new Add_UpdateCarForm(_mainForm, _context);
             form.ShowDialog();
             loadCarList();
         }
@@ -58,7 +66,7 @@ namespace CarRental.Forms.Car
             }
             else
             {
-                Add_UpdateCarForm form = new Add_UpdateCarForm(_context, entity);
+                Add_UpdateCarForm form = new Add_UpdateCarForm(_mainForm, _context, entity);
                 form.ShowDialog();
             }
             loadCarList();
@@ -86,7 +94,10 @@ namespace CarRental.Forms.Car
             if (!string.IsNullOrWhiteSpace(searchText))
             {
                 query = _context.Cars.Where(c =>
-                    c.Brand.Contains(searchText));
+                    c.Brand.Contains(searchText) ||
+                    c.NameCode.Contains(searchText) ||
+                    c.CarName.Contains(searchText)
+                    );
             }
 
             dataGridView1.DataSource = query.ToList();

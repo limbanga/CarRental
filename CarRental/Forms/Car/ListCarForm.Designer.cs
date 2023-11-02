@@ -32,9 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListCarForm));
             carEntityBindingSource = new BindingSource(components);
             dataGridView1 = new DataGridView();
-            AddCarButton = new Button();
-            searchTextBox = new TextBox();
-            searchButton = new Button();
             nameCodeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             CarName = new DataGridViewTextBoxColumn();
             carTypeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -42,6 +39,9 @@
             brandDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             PricePerDay = new DataGridViewTextBoxColumn();
             Remove = new DataGridViewImageColumn();
+            addCarButton = new Button();
+            searchTextBox = new TextBox();
+            searchButton = new Button();
             ((System.ComponentModel.ISupportInitialize)carEntityBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -60,22 +60,81 @@
             dataGridView1.DataSource = carEntityBindingSource;
             dataGridView1.Location = new Point(23, 85);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
             dataGridView1.Size = new Size(754, 342);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
-            // AddCarButton
+            // nameCodeDataGridViewTextBoxColumn
             // 
-            AddCarButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            AddCarButton.Location = new Point(683, 23);
-            AddCarButton.Name = "AddCarButton";
-            AddCarButton.Size = new Size(94, 29);
-            AddCarButton.TabIndex = 1;
-            AddCarButton.Text = "Add";
-            AddCarButton.UseVisualStyleBackColor = true;
-            AddCarButton.Click += AddCarButton_Click;
+            nameCodeDataGridViewTextBoxColumn.DataPropertyName = "NameCode";
+            nameCodeDataGridViewTextBoxColumn.HeaderText = "NameCode";
+            nameCodeDataGridViewTextBoxColumn.MinimumWidth = 6;
+            nameCodeDataGridViewTextBoxColumn.Name = "nameCodeDataGridViewTextBoxColumn";
+            nameCodeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // CarName
+            // 
+            CarName.DataPropertyName = "CarName";
+            CarName.HeaderText = "CarName";
+            CarName.MinimumWidth = 6;
+            CarName.Name = "CarName";
+            CarName.ReadOnly = true;
+            // 
+            // carTypeDataGridViewTextBoxColumn
+            // 
+            carTypeDataGridViewTextBoxColumn.DataPropertyName = "CarType";
+            carTypeDataGridViewTextBoxColumn.HeaderText = "CarType";
+            carTypeDataGridViewTextBoxColumn.MinimumWidth = 6;
+            carTypeDataGridViewTextBoxColumn.Name = "carTypeDataGridViewTextBoxColumn";
+            carTypeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // FuelType
+            // 
+            FuelType.DataPropertyName = "FuelType";
+            FuelType.HeaderText = "FuelType";
+            FuelType.MinimumWidth = 6;
+            FuelType.Name = "FuelType";
+            FuelType.ReadOnly = true;
+            // 
+            // brandDataGridViewTextBoxColumn
+            // 
+            brandDataGridViewTextBoxColumn.DataPropertyName = "Brand";
+            brandDataGridViewTextBoxColumn.HeaderText = "Brand";
+            brandDataGridViewTextBoxColumn.MinimumWidth = 6;
+            brandDataGridViewTextBoxColumn.Name = "brandDataGridViewTextBoxColumn";
+            brandDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // PricePerDay
+            // 
+            PricePerDay.DataPropertyName = "PricePerDay";
+            PricePerDay.HeaderText = "PricePerDay ($)";
+            PricePerDay.MinimumWidth = 6;
+            PricePerDay.Name = "PricePerDay";
+            PricePerDay.ReadOnly = true;
+            // 
+            // Remove
+            // 
+            Remove.FillWeight = 106.951874F;
+            Remove.HeaderText = "Remove";
+            Remove.Image = (Image)resources.GetObject("Remove.Image");
+            Remove.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            Remove.MinimumWidth = 6;
+            Remove.Name = "Remove";
+            Remove.ReadOnly = true;
+            // 
+            // addCarButton
+            // 
+            addCarButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            addCarButton.Location = new Point(683, 23);
+            addCarButton.Name = "addCarButton";
+            addCarButton.Size = new Size(94, 29);
+            addCarButton.TabIndex = 1;
+            addCarButton.Text = "Add";
+            addCarButton.UseVisualStyleBackColor = true;
+            addCarButton.Click += AddCarButton_Click;
             // 
             // searchTextBox
             // 
@@ -94,57 +153,6 @@
             searchButton.UseVisualStyleBackColor = true;
             searchButton.Click += searchButton_Click;
             // 
-            // nameCodeDataGridViewTextBoxColumn
-            // 
-            nameCodeDataGridViewTextBoxColumn.DataPropertyName = "NameCode";
-            nameCodeDataGridViewTextBoxColumn.HeaderText = "NameCode";
-            nameCodeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            nameCodeDataGridViewTextBoxColumn.Name = "nameCodeDataGridViewTextBoxColumn";
-            // 
-            // CarName
-            // 
-            CarName.DataPropertyName = "CarName";
-            CarName.HeaderText = "CarName";
-            CarName.MinimumWidth = 6;
-            CarName.Name = "CarName";
-            // 
-            // carTypeDataGridViewTextBoxColumn
-            // 
-            carTypeDataGridViewTextBoxColumn.DataPropertyName = "CarType";
-            carTypeDataGridViewTextBoxColumn.HeaderText = "CarType";
-            carTypeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            carTypeDataGridViewTextBoxColumn.Name = "carTypeDataGridViewTextBoxColumn";
-            // 
-            // FuelType
-            // 
-            FuelType.DataPropertyName = "FuelType";
-            FuelType.HeaderText = "FuelType";
-            FuelType.MinimumWidth = 6;
-            FuelType.Name = "FuelType";
-            // 
-            // brandDataGridViewTextBoxColumn
-            // 
-            brandDataGridViewTextBoxColumn.DataPropertyName = "Brand";
-            brandDataGridViewTextBoxColumn.HeaderText = "Brand";
-            brandDataGridViewTextBoxColumn.MinimumWidth = 6;
-            brandDataGridViewTextBoxColumn.Name = "brandDataGridViewTextBoxColumn";
-            // 
-            // PricePerDay
-            // 
-            PricePerDay.DataPropertyName = "PricePerDay";
-            PricePerDay.HeaderText = "PricePerDay ($)";
-            PricePerDay.MinimumWidth = 6;
-            PricePerDay.Name = "PricePerDay";
-            // 
-            // Remove
-            // 
-            Remove.FillWeight = 106.951874F;
-            Remove.HeaderText = "Remove";
-            Remove.Image = (Image)resources.GetObject("Remove.Image");
-            Remove.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            Remove.MinimumWidth = 6;
-            Remove.Name = "Remove";
-            // 
             // ListCarForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -152,7 +160,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(searchButton);
             Controls.Add(searchTextBox);
-            Controls.Add(AddCarButton);
+            Controls.Add(addCarButton);
             Controls.Add(dataGridView1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ListCarForm";
@@ -169,7 +177,7 @@
 
         private BindingSource carEntityBindingSource;
         private DataGridView dataGridView1;
-        private Button AddCarButton;
+        private Button addCarButton;
         private TextBox searchTextBox;
         private Button searchButton;
         private DataGridViewTextBoxColumn nameCodeDataGridViewTextBoxColumn;

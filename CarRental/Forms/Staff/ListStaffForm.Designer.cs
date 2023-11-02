@@ -33,6 +33,7 @@
             idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             roleDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            IsLocked = new DataGridViewCheckBoxColumn();
             appUserEntityBindingSource = new BindingSource(components);
             addButton = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -41,18 +42,20 @@
             // 
             // dataGridView1
             // 
-            dataGridView1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, nameDataGridViewTextBoxColumn, roleDataGridViewTextBoxColumn });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, nameDataGridViewTextBoxColumn, roleDataGridViewTextBoxColumn, IsLocked });
             dataGridView1.DataSource = appUserEntityBindingSource;
             dataGridView1.Location = new Point(23, 94);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
             dataGridView1.Size = new Size(754, 333);
             dataGridView1.TabIndex = 0;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -60,6 +63,7 @@
             idDataGridViewTextBoxColumn.HeaderText = "Id";
             idDataGridViewTextBoxColumn.MinimumWidth = 6;
             idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            idDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -67,6 +71,7 @@
             nameDataGridViewTextBoxColumn.HeaderText = "Name";
             nameDataGridViewTextBoxColumn.MinimumWidth = 6;
             nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // roleDataGridViewTextBoxColumn
             // 
@@ -74,6 +79,15 @@
             roleDataGridViewTextBoxColumn.HeaderText = "Role";
             roleDataGridViewTextBoxColumn.MinimumWidth = 6;
             roleDataGridViewTextBoxColumn.Name = "roleDataGridViewTextBoxColumn";
+            roleDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // IsLocked
+            // 
+            IsLocked.DataPropertyName = "IsLocked";
+            IsLocked.HeaderText = "IsLocked";
+            IsLocked.MinimumWidth = 6;
+            IsLocked.Name = "IsLocked";
+            IsLocked.ReadOnly = true;
             // 
             // appUserEntityBindingSource
             // 
@@ -101,6 +115,7 @@
             Name = "ListStaffForm";
             Padding = new Padding(20);
             Text = "ListStaffForm";
+            Load += ListStaffForm_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)appUserEntityBindingSource).EndInit();
             ResumeLayout(false);
@@ -110,9 +125,10 @@
 
         private DataGridView dataGridView1;
         private Button addButton;
+        private BindingSource appUserEntityBindingSource;
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn roleDataGridViewTextBoxColumn;
-        private BindingSource appUserEntityBindingSource;
+        private DataGridViewCheckBoxColumn IsLocked;
     }
 }

@@ -18,12 +18,14 @@ namespace CarRental.Forms.Car
     {
         CarEntity? carEntity = null;
         CarRentalContext _context;
+        MainForm _mainForm;
 
-        public Add_UpdateCarForm(CarRentalContext context, CarEntity? carEntity = null)
+        public Add_UpdateCarForm(MainForm mainForm, CarRentalContext context, CarEntity? carEntity = null)
         {
             InitializeComponent();
             _context = context;
             this.carEntity = carEntity;
+            _mainForm = mainForm;
         }
 
         //--------------------------------------------------------------
@@ -37,6 +39,11 @@ namespace CarRental.Forms.Car
             {
                 Text = "Update car";
                 BindOldValue(carEntity);
+            }
+
+            if (_mainForm.user.Role != AppUserRole.Admin)
+            {
+                saveButton.Enabled = false;
             }
         }
 
@@ -177,6 +184,12 @@ namespace CarRental.Forms.Car
 
         private void AddCar(CarEntity entity)
         {
+            var isCodeNameExist = _context.Cars.Where(c => c.NameCode.Equals(entity.NameCode)).Any();
+            if (isCodeNameExist)
+            {
+                throw new ValidateException("Name code is already exist.");
+            }
+
             _context.Cars.Add(entity);
             _context.SaveChanges();
             MessageBox.Show("Add new car successfully.", "Success",
@@ -185,6 +198,18 @@ namespace CarRental.Forms.Car
 
         private void UpdateCar(CarEntity entity)
         {
+
+            var isCodeNameExist = _context.Cars
+                .Where(c => 
+                    !c.Id.Equals(entity.Id) &&
+                    c.NameCode.Equals(entity.NameCode)
+                    ).Any();
+
+            if (isCodeNameExist)
+            {
+                throw new ValidateException("Name code is already exist.");
+            }
+
             _context.Cars.Update(entity);
             _context.SaveChanges();
             MessageBox.Show("Update car successfully.", "Success",

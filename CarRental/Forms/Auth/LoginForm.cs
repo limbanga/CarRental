@@ -50,6 +50,13 @@ namespace CarRental.Forms.Auth
                 return;
             }
 
+            if (user.IsLocked)
+            {
+                MessageBox.Show("Your account is locked.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             bool isVerified = BCrypt.Net.BCrypt.Verify(password, user.Password);
             if (!isVerified)
             {

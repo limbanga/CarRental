@@ -60,6 +60,7 @@ namespace CarRental.Forms.Statistic
         /// </summary>
         public void LoadSale(int year)
         {
+            titleLabel.Text = $"Sales in {year}";
             var bookingnotes = _context.BookingNotes.Where(b => b.RealReturnAt.Year.Equals(year)).ToList();
 
             var groups = bookingnotes.GroupBy(x => x.RealReturnAt.Month);
@@ -109,6 +110,8 @@ namespace CarRental.Forms.Statistic
         }
         public void LoadSaleGroupBy(int year, int groupBy)
         {
+            titleLabel.Text = $"Sales in {year} by {(groupBy == 2? "Brand": "Type")}";
+
             var listBookingNote = _context.BookingNotes
                         .Where(b => b.RealReturnAt.Year.Equals(year))
                         .ToList();
@@ -183,9 +186,11 @@ namespace CarRental.Forms.Statistic
         }
         public void LoadSale(int year, int month)
         {
+            titleLabel.Text = $"Sales in {month}/{year}";
+
             int numberOfDay = DateTime.DaysInMonth(year, month);
             var bookingnotes = _context.BookingNotes
-                .Where(b => 
+                .Where(b =>
                     b.RealReturnAt.Year.Equals(year) &&
                     b.RealReturnAt.Month.Equals(month)
                     )
@@ -198,7 +203,7 @@ namespace CarRental.Forms.Statistic
             for (int i = 0; i < numberOfDay; i++)
             {
                 list.Add(0);
-                xLabels[i] = $"D{i+1}";
+                xLabels[i] = $"D{i + 1}";
             }
 
             foreach (var group in groups)
@@ -241,8 +246,10 @@ namespace CarRental.Forms.Statistic
         }
         public void LoadSaleGroupBy(int year, int month, int groupBy)
         {
+            titleLabel.Text = $"Sales in {month}/{year} by {(groupBy == 2 ? "Brand" : "Type")}";
+
             var listBookingNote = _context.BookingNotes
-                                    .Where(b => 
+                                    .Where(b =>
                                         b.RealReturnAt.Year.Equals(year) &&
                                         b.RealReturnAt.Month.Equals(month)
                                         )
@@ -318,6 +325,8 @@ namespace CarRental.Forms.Statistic
         }
         public void LoadQuantity(int year)
         {
+            titleLabel.Text = $"Quantity car was hired in {year}";
+
             var bookingnotes = _context.BookingNotes.Where(b => b.RealReturnAt.Year.Equals(year)).ToList();
             float numberOfCar = bookingnotes.Count;
             totalCarLabel.Text = $"Total car : {numberOfCar}";
@@ -370,6 +379,7 @@ namespace CarRental.Forms.Statistic
         }
         public void LoadQuantityGroupBy(int year, int groupBy)
         {
+            titleLabel.Text = $"Quantity car was hired in {year} by {(groupBy == 2? "Brand": "Type")}";
             var listCar = _context.BookingNotes
                                     .Where(b => b.RealReturnAt.Year.Equals(year))
                                     .ToList();
@@ -445,6 +455,8 @@ namespace CarRental.Forms.Statistic
         {
             int numberOfDay = DateTime.DaysInMonth(year, month);
 
+            titleLabel.Text = $"Quantity car was hired in {month}/{year}";
+
             var bookingnotes = _context.BookingNotes
                 .Where(b =>
                         b.RealReturnAt.Year.Equals(year) &&
@@ -505,8 +517,10 @@ namespace CarRental.Forms.Statistic
         }
         public void LoadQuantityGroupBy(int year, int month, int groupBy)
         {
+           titleLabel.Text = $"Quantity car was hired in {month}/{year} by {(groupBy == 2 ? "Brand": "Type")}";
+
             var listCar = _context.BookingNotes
-                            .Where(b => 
+                            .Where(b =>
                                     b.RealReturnAt.Year.Equals(year) &&
                                     b.RealReturnAt.Month.Equals(month)
                              )

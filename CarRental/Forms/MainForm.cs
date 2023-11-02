@@ -16,7 +16,7 @@ namespace CarRental
 {
     public partial class MainForm : Form
     {
-        CarRentalContext _context;
+        public CarRentalContext _context;
         public AppUserEntity user = null!;
 
         public MainForm()
@@ -38,20 +38,24 @@ namespace CarRental
             if (user.Role != AppUserRole.Admin)
             {
                 staffToolStripMenuItem.Visible = false;
+                importToolStripMenuItem.Visible = false;
+                exportToolStripMenuItem.Visible = false;
+                importToolStripMenuItem1.Visible = false;
+                exportToolStripMenuItem1.Visible = false;
             }
 
-            LoadForm(new ListCarForm(_context));
+            LoadForm(new ListCarForm(this));
             Show();
         }
 
         private void carToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LoadForm(new ListCarForm(_context));
+            LoadForm(new ListCarForm(this));
         }
 
         private void customerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LoadForm(new ListCustomerForm(_context));
+            LoadForm(new ListCustomerForm(this));
         }
 
         private void bookingNoteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -70,7 +74,7 @@ namespace CarRental
                 staffToolStripMenuItem.Visible = false;
             }
 
-            LoadForm(new ListCarForm(_context));
+            LoadForm(new ListCarForm(this));
             Show();
         }
 

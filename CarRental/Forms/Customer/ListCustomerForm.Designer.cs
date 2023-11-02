@@ -31,14 +31,14 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListCustomerForm));
             dataGridView1 = new DataGridView();
-            customerEntityBindingSource = new BindingSource(components);
-            AddCustomerButton = new Button();
-            searchTextBox = new TextBox();
-            searchButton = new Button();
             nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             phoneNumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             addressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             Remove = new DataGridViewImageColumn();
+            customerEntityBindingSource = new BindingSource(components);
+            addCustomerButton = new Button();
+            searchTextBox = new TextBox();
+            searchButton = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)customerEntityBindingSource).BeginInit();
             SuspendLayout();
@@ -53,11 +53,45 @@
             dataGridView1.DataSource = customerEntityBindingSource;
             dataGridView1.Location = new Point(23, 95);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
             dataGridView1.Size = new Size(754, 332);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            nameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // phoneNumberDataGridViewTextBoxColumn
+            // 
+            phoneNumberDataGridViewTextBoxColumn.DataPropertyName = "PhoneNumber";
+            phoneNumberDataGridViewTextBoxColumn.HeaderText = "PhoneNumber";
+            phoneNumberDataGridViewTextBoxColumn.MinimumWidth = 6;
+            phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
+            phoneNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // addressDataGridViewTextBoxColumn
+            // 
+            addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
+            addressDataGridViewTextBoxColumn.HeaderText = "Address";
+            addressDataGridViewTextBoxColumn.MinimumWidth = 6;
+            addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            addressDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Remove
+            // 
+            Remove.HeaderText = "Remove";
+            Remove.Image = (Image)resources.GetObject("Remove.Image");
+            Remove.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            Remove.MinimumWidth = 6;
+            Remove.Name = "Remove";
+            Remove.ReadOnly = true;
             // 
             // customerEntityBindingSource
             // 
@@ -65,14 +99,14 @@
             // 
             // AddCustomerButton
             // 
-            AddCustomerButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            AddCustomerButton.Location = new Point(683, 23);
-            AddCustomerButton.Name = "AddCustomerButton";
-            AddCustomerButton.Size = new Size(94, 29);
-            AddCustomerButton.TabIndex = 1;
-            AddCustomerButton.Text = "Add";
-            AddCustomerButton.UseVisualStyleBackColor = true;
-            AddCustomerButton.Click += AddCustomerButton_Click;
+            addCustomerButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            addCustomerButton.Location = new Point(683, 23);
+            addCustomerButton.Name = "AddCustomerButton";
+            addCustomerButton.Size = new Size(94, 29);
+            addCustomerButton.TabIndex = 1;
+            addCustomerButton.Text = "Add";
+            addCustomerButton.UseVisualStyleBackColor = true;
+            addCustomerButton.Click += AddCustomerButton_Click;
             // 
             // searchTextBox
             // 
@@ -91,35 +125,6 @@
             searchButton.UseVisualStyleBackColor = true;
             searchButton.Click += searchButton_Click;
             // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            nameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            // 
-            // phoneNumberDataGridViewTextBoxColumn
-            // 
-            phoneNumberDataGridViewTextBoxColumn.DataPropertyName = "PhoneNumber";
-            phoneNumberDataGridViewTextBoxColumn.HeaderText = "PhoneNumber";
-            phoneNumberDataGridViewTextBoxColumn.MinimumWidth = 6;
-            phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
-            // 
-            // addressDataGridViewTextBoxColumn
-            // 
-            addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
-            addressDataGridViewTextBoxColumn.HeaderText = "Address";
-            addressDataGridViewTextBoxColumn.MinimumWidth = 6;
-            addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
-            // 
-            // Remove
-            // 
-            Remove.HeaderText = "Remove";
-            Remove.Image = (Image)resources.GetObject("Remove.Image");
-            Remove.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            Remove.MinimumWidth = 6;
-            Remove.Name = "Remove";
-            // 
             // ListCustomerForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -127,7 +132,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(searchButton);
             Controls.Add(searchTextBox);
-            Controls.Add(AddCustomerButton);
+            Controls.Add(addCustomerButton);
             Controls.Add(dataGridView1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ListCustomerForm";
@@ -144,7 +149,7 @@
 
         private DataGridView dataGridView1;
         private BindingSource customerEntityBindingSource;
-        private Button AddCustomerButton;
+        private Button addCustomerButton;
         private TextBox searchTextBox;
         private Button searchButton;
         private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;

@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StatisticForm));
             cartesianChart = new LiveChartsCore.SkiaSharpView.WinForms.CartesianChart();
-            label1 = new Label();
+            titleLabel = new Label();
             totalCarLabel = new Label();
             configPictureBox = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)configPictureBox).BeginInit();
@@ -44,16 +44,16 @@
             cartesianChart.Size = new Size(831, 361);
             cartesianChart.TabIndex = 0;
             // 
-            // label1
+            // titleLabel
             // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(278, 20);
-            label1.Name = "label1";
-            label1.Size = new Size(325, 41);
-            label1.TabIndex = 1;
-            label1.Text = "Number of car by type";
+            titleLabel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            titleLabel.AutoSize = true;
+            titleLabel.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            titleLabel.Location = new Point(278, 20);
+            titleLabel.Name = "titleLabel";
+            titleLabel.Size = new Size(325, 41);
+            titleLabel.TabIndex = 1;
+            titleLabel.Text = "Number of car by type";
             // 
             // totalCarLabel
             // 
@@ -85,7 +85,7 @@
             ClientSize = new Size(877, 492);
             Controls.Add(configPictureBox);
             Controls.Add(totalCarLabel);
-            Controls.Add(label1);
+            Controls.Add(titleLabel);
             Controls.Add(cartesianChart);
             FormBorderStyle = FormBorderStyle.None;
             Name = "StatisticForm";
@@ -100,7 +100,7 @@
         #endregion
 
         private LiveChartsCore.SkiaSharpView.WinForms.CartesianChart cartesianChart;
-        private Label label1;
+        private Label titleLabel;
         private Label totalCarLabel;
         private PictureBox configPictureBox;
     }

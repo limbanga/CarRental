@@ -93,7 +93,6 @@
             quantityRadioButton.TabStop = true;
             quantityRadioButton.Text = "Quantity";
             quantityRadioButton.UseVisualStyleBackColor = true;
-            quantityRadioButton.CheckedChanged += radioButton1_CheckedChanged;
             // 
             // groupBox2
             // 

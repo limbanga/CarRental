@@ -15,5 +15,6 @@ namespace CarRental.Entities
         [StringLength(100)]
         public string Password { get; set; } = null!;
         public AppUserRole Role { get; set; } = AppUserRole.Staff;
+        public bool IsLocked { get; set; } = false;
     }
 }

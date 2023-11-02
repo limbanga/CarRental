@@ -15,17 +15,19 @@ namespace CarRental.Forms.Customer
 {
     public partial class Add_UpdateCustomerForm : Form
     {
+        MainForm _mainForm;
         CarRentalContext _context;
-        CustomerEntity? customerEntity = null;
+        CustomerEntity? _customerEntity = null;
 
         public Add_UpdateCustomerForm(
-            CarRentalContext context,
+            MainForm mainForm,
             CustomerEntity? customerEntity = null
             )
         {
             InitializeComponent();
-            _context = context;
-            this.customerEntity = customerEntity;
+            _mainForm = mainForm;
+            _context = mainForm._context;
+            _customerEntity = customerEntity;
         }
 
         //-----------------------------------------------------------------
@@ -34,29 +36,32 @@ namespace CarRental.Forms.Customer
 
         private void Add_UpdateCustomerForm_Load(object sender, EventArgs e)
         {
-            if (customerEntity != null)
+            if (_customerEntity != null)
             {
                 Text = "Update customer";
-                bindOldValue(customerEntity);
+                BindOldValue(_customerEntity);
+            }
+
+            if (_mainForm.user.Role != AppUserRole.Admin)
+            {
+                saveButton.Enabled = false;    
             }
         }
-
-
 
         private void saveButton_Click(object sender, EventArgs e)
         {
             try
             {
-                if (customerEntity == null)
+                if (_customerEntity == null)
                 {
-                    customerEntity = new CustomerEntity();
-                    getInput(customerEntity);
-                    addCustomer(customerEntity);
+                    _customerEntity = new CustomerEntity();
+                    GetInput(_customerEntity);
+                    AddCustomer(_customerEntity);
                 }
                 else
                 {
-                    getInput(customerEntity);
-                    updateCustomer(customerEntity);
+                    GetInput(_customerEntity);
+                    UpdateCustomer(_customerEntity);
                 }
                 Close();
             }
@@ -76,7 +81,7 @@ namespace CarRental.Forms.Customer
         // fun
         //-----------------------------------------------------------------
 
-        private void getInput(CustomerEntity customerEntity)
+        private void GetInput(CustomerEntity customerEntity)
         {
             if (string.IsNullOrWhiteSpace(nameTextBox.Text))
             {
@@ -98,23 +103,42 @@ namespace CarRental.Forms.Customer
             customerEntity.Address = addressTextBox.Text;
         }
 
-        private void bindOldValue(CustomerEntity customerEntity)
+        private void BindOldValue(CustomerEntity customerEntity)
         {
             nameTextBox.Text = customerEntity.Name;
             phoneNumberTextBox.Text = customerEntity.PhoneNumber;
             addressTextBox.Text = customerEntity.Address;
         }
 
-        private void updateCustomer(CustomerEntity customerEntity)
+        private void UpdateCustomer(CustomerEntity customerEntity)
         {
+            var isPhoneNumberExist = _context.Customers
+            .Where(x => 
+                !x.Id.Equals(customerEntity.Id) &&
+                x.PhoneNumber.Equals(customerEntity.PhoneNumber))
+            .Any();
+
+            if (isPhoneNumberExist)
+            {
+                throw new ValidateException("Phone number is already exist.");
+            }
+
             _context.Customers.Update(customerEntity);
             _context.SaveChanges();
             MessageBox.Show("Update customer successfully.", "Success",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void addCustomer(CustomerEntity customerEntity)
+        private void AddCustomer(CustomerEntity customerEntity)
         {
+            var isPhoneNumberExist = _context.Customers
+                        .Where(x => x.PhoneNumber.Equals(customerEntity.PhoneNumber)).Any();
+            
+            if (isPhoneNumberExist)
+            {
+                throw new ValidateException("Phone number is already exist.");
+            }
+
             _context.Customers.Add(customerEntity);
             _context.SaveChanges();
             MessageBox.Show("Add new customer successfully.", "Success",

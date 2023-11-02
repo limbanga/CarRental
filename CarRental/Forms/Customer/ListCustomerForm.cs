@@ -16,10 +16,13 @@ namespace CarRental.Forms.Customer
     public partial class ListCustomerForm : Form
     {
         CarRentalContext _context;
-        public ListCustomerForm(CarRentalContext context)
+        MainForm _mainForm;
+
+        public ListCustomerForm( MainForm mainForm)
         {
             InitializeComponent();
-            _context = context;
+            _mainForm = mainForm;
+            _context = mainForm._context;
         }
 
         //----------------------------------------------------------
@@ -29,11 +32,16 @@ namespace CarRental.Forms.Customer
         private void ListCustomerForm_Load(object sender, EventArgs e)
         {
             loadCustomer();
+            if (_mainForm.user.Role != AppUserRole.Admin)
+            {
+                addCustomerButton.Enabled = false;
+                Remove.Visible = false;
+            }
         }
 
         private void AddCustomerButton_Click(object sender, EventArgs e)
         {
-            Add_UpdateCustomerForm form = new Add_UpdateCustomerForm(_context);
+            Add_UpdateCustomerForm form = new Add_UpdateCustomerForm(_mainForm);
             form.ShowDialog();
             loadCustomer();
         }
@@ -60,7 +68,7 @@ namespace CarRental.Forms.Customer
             }
             else
             {
-                Add_UpdateCustomerForm form = new Add_UpdateCustomerForm(_context, customerEntity);
+                Add_UpdateCustomerForm form = new Add_UpdateCustomerForm(_mainForm, customerEntity);
                 form.ShowDialog();
             }
 

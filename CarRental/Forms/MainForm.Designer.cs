@@ -38,10 +38,10 @@
             exportToolStripMenuItem = new ToolStripMenuItem();
             bookingNoteToolStripMenuItem = new ToolStripMenuItem();
             statisticToolStripMenuItem = new ToolStripMenuItem();
+            staffToolStripMenuItem = new ToolStripMenuItem();
             accountToolStripMenuItem = new ToolStripMenuItem();
             changePasswordToolStripMenuItem = new ToolStripMenuItem();
             logoutToolStripMenuItem = new ToolStripMenuItem();
-            staffToolStripMenuItem = new ToolStripMenuItem();
             panelMain = new Panel();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -67,14 +67,14 @@
             // importToolStripMenuItem1
             // 
             importToolStripMenuItem1.Name = "importToolStripMenuItem1";
-            importToolStripMenuItem1.Size = new Size(137, 26);
+            importToolStripMenuItem1.Size = new Size(224, 26);
             importToolStripMenuItem1.Text = "Import";
             importToolStripMenuItem1.Click += importToolStripMenuItem1_Click;
             // 
             // exportToolStripMenuItem1
             // 
             exportToolStripMenuItem1.Name = "exportToolStripMenuItem1";
-            exportToolStripMenuItem1.Size = new Size(137, 26);
+            exportToolStripMenuItem1.Size = new Size(224, 26);
             exportToolStripMenuItem1.Text = "Export";
             exportToolStripMenuItem1.Click += exportToolStripMenuItem1_Click;
             // 
@@ -89,14 +89,14 @@
             // importToolStripMenuItem
             // 
             importToolStripMenuItem.Name = "importToolStripMenuItem";
-            importToolStripMenuItem.Size = new Size(137, 26);
+            importToolStripMenuItem.Size = new Size(224, 26);
             importToolStripMenuItem.Text = "Import";
             importToolStripMenuItem.Click += importToolStripMenuItem_Click;
             // 
             // exportToolStripMenuItem
             // 
             exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            exportToolStripMenuItem.Size = new Size(137, 26);
+            exportToolStripMenuItem.Size = new Size(224, 26);
             exportToolStripMenuItem.Text = "Export";
             exportToolStripMenuItem.Click += exportToolStripMenuItem_Click;
             // 
@@ -113,6 +113,13 @@
             statisticToolStripMenuItem.Size = new Size(75, 24);
             statisticToolStripMenuItem.Text = "Statistic";
             statisticToolStripMenuItem.Click += statisticToolStripMenuItem_Click;
+            // 
+            // staffToolStripMenuItem
+            // 
+            staffToolStripMenuItem.Name = "staffToolStripMenuItem";
+            staffToolStripMenuItem.Size = new Size(54, 24);
+            staffToolStripMenuItem.Text = "Staff";
+            staffToolStripMenuItem.Click += staffToolStripMenuItem_Click;
             // 
             // accountToolStripMenuItem
             // 
@@ -134,13 +141,6 @@
             logoutToolStripMenuItem.Size = new Size(203, 26);
             logoutToolStripMenuItem.Text = "Logout";
             logoutToolStripMenuItem.Click += logoutToolStripMenuItem_Click;
-            // 
-            // staffToolStripMenuItem
-            // 
-            staffToolStripMenuItem.Name = "staffToolStripMenuItem";
-            staffToolStripMenuItem.Size = new Size(54, 24);
-            staffToolStripMenuItem.Text = "Staff";
-            staffToolStripMenuItem.Click += staffToolStripMenuItem_Click;
             // 
             // panelMain
             // 

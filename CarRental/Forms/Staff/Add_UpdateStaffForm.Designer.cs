@@ -37,6 +37,7 @@
             roleComboBox = new ComboBox();
             label3 = new Label();
             saveButton = new Button();
+            isLockedcheckBox = new CheckBox();
             SuspendLayout();
             // 
             // label1
@@ -62,6 +63,7 @@
             passwordTextBox.Size = new Size(246, 27);
             passwordTextBox.TabIndex = 3;
             passwordTextBox.UseSystemPasswordChar = true;
+            passwordTextBox.Click += passwordTextBox_Click;
             // 
             // label2
             // 
@@ -76,7 +78,7 @@
             // 
             togglePasswordCheckBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             togglePasswordCheckBox.AutoSize = true;
-            togglePasswordCheckBox.Location = new Point(23, 197);
+            togglePasswordCheckBox.Location = new Point(23, 186);
             togglePasswordCheckBox.Name = "togglePasswordCheckBox";
             togglePasswordCheckBox.Size = new Size(134, 24);
             togglePasswordCheckBox.TabIndex = 4;
@@ -104,7 +106,7 @@
             // saveButton
             // 
             saveButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            saveButton.Location = new Point(286, 197);
+            saveButton.Location = new Point(286, 259);
             saveButton.Name = "saveButton";
             saveButton.Size = new Size(94, 29);
             saveButton.TabIndex = 7;
@@ -112,11 +114,23 @@
             saveButton.UseVisualStyleBackColor = true;
             saveButton.Click += saveButton_Click;
             // 
+            // isLockedcheckBox
+            // 
+            isLockedcheckBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            isLockedcheckBox.AutoSize = true;
+            isLockedcheckBox.Location = new Point(23, 236);
+            isLockedcheckBox.Name = "isLockedcheckBox";
+            isLockedcheckBox.Size = new Size(92, 24);
+            isLockedcheckBox.TabIndex = 8;
+            isLockedcheckBox.Text = "Is Locked";
+            isLockedcheckBox.UseVisualStyleBackColor = true;
+            // 
             // Add_UpdateStaffForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(403, 251);
+            ClientSize = new Size(403, 313);
+            Controls.Add(isLockedcheckBox);
             Controls.Add(saveButton);
             Controls.Add(label3);
             Controls.Add(roleComboBox);
@@ -129,7 +143,7 @@
             Name = "Add_UpdateStaffForm";
             Padding = new Padding(20);
             StartPosition = FormStartPosition.CenterParent;
-            Text = "StaffForm";
+            Text = "Add staff";
             Load += Add_UpdateStaffForm_Load;
             ResumeLayout(false);
             PerformLayout();
@@ -145,5 +159,6 @@
         private ComboBox roleComboBox;
         private Label label3;
         private Button saveButton;
+        private CheckBox isLockedcheckBox;
     }
 }
