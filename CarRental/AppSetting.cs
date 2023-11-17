@@ -8,6 +8,7 @@ namespace CarRental
 {
     public static class AppSetting
     {
-        public const string ConnectionString = @"Data Source=TCS\SQLEXPRESS;Initial Catalog=CarRental;Integrated Security=True";
+        public const string ConnectionString = 
+            @"Data Source=TCS\SQLEXPRESS;Initial Catalog=CarRental2;Integrated Security=True";
     }
 }
