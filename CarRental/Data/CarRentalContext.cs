@@ -19,5 +19,20 @@ namespace CarRental.Data
         public DbSet<BookingNoteEntity> BookingNotes{ get; set; } = null!;
         public DbSet<CarEntity> Cars { get; set; } = null!;
         public DbSet<CustomerEntity> Customers { get; set; } = null!;
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<BookingNoteEntity>()
+                .HasOne(b => b.Car)
+                .WithMany()
+                .OnDelete(DeleteBehavior.ClientCascade);
+
+            modelBuilder.Entity<BookingNoteEntity>()
+                .HasOne(b => b.Customer)
+                .WithMany()
+                .OnDelete(DeleteBehavior.ClientCascade);
+        }
     }
 }

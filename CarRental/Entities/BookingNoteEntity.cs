@@ -14,6 +14,7 @@ namespace CarRental.Entities
         public CustomerEntity? Customer { get; set; }
         public int? CarId { get; set; }
         public CarEntity? Car { get; set; }
+        [Range(0, int.MaxValue)]
         public float TotalFee { get; set; } = 0;
         public DateTime RentAt { get; set; } = DateTime.Now;
         public DateTime ReturnAt { get; set; } = DateTime.Now;

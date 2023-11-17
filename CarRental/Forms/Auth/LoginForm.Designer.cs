@@ -110,6 +110,7 @@
             StartPosition = FormStartPosition.CenterParent;
             Text = "LoginForm";
             FormClosing += LoginForm_FormClosing;
+            Load += LoginForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

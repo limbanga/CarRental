@@ -63,6 +63,9 @@ namespace CarRental.Forms.Statistic
             titleLabel.Text = $"Sales in {year}";
             var bookingnotes = _context.BookingNotes.Where(b => b.RealReturnAt.Year.Equals(year)).ToList();
 
+            float totalSale = bookingnotes.Sum(b => b.TotalFee);
+            totalCarLabel.Text = $"Total sale : {totalSale}";
+
             var groups = bookingnotes.GroupBy(x => x.RealReturnAt.Month);
             double[] list = new double[12];
 
@@ -195,6 +198,9 @@ namespace CarRental.Forms.Statistic
                     b.RealReturnAt.Month.Equals(month)
                     )
                 .ToList();
+
+            float totalSale = bookingnotes.Sum(b => b.TotalFee);
+            totalCarLabel.Text = $"Total sale : {totalSale}";
 
             var groups = bookingnotes.GroupBy(x => x.RealReturnAt.Day);
             List<double> list = new List<double>(numberOfDay);

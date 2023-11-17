@@ -35,15 +35,6 @@ namespace CarRental
             form.ShowDialog();
             Hide();
 
-            if (user.Role != AppUserRole.Admin)
-            {
-                staffToolStripMenuItem.Visible = false;
-                importToolStripMenuItem.Visible = false;
-                exportToolStripMenuItem.Visible = false;
-                importToolStripMenuItem1.Visible = false;
-                exportToolStripMenuItem1.Visible = false;
-            }
-
             LoadForm(new ListCarForm(this));
             Show();
         }
@@ -310,5 +301,13 @@ namespace CarRental
             }
         }
 
+        public void DoAuthorization(bool isAdminRole)
+        {
+            staffToolStripMenuItem.Visible = isAdminRole;
+            importToolStripMenuItem.Visible = isAdminRole;
+            exportToolStripMenuItem.Visible = isAdminRole;
+            importToolStripMenuItem1.Visible = isAdminRole;
+            exportToolStripMenuItem1.Visible = isAdminRole;
+        }
     }
 }

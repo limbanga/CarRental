@@ -1,11 +1,13 @@
-﻿    using CarRental.Data;
+﻿using CarRental.Data;
 using CarRental.Entities;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,13 +32,16 @@ namespace CarRental.Forms.Auth
         // event
         //---------------------------------------------------------
 
-        private void loginButton_Click(object sender, EventArgs e)
+        private void LoginForm_Load(object sender, EventArgs e)
         {
             if (!_context.AppUsers.Any())
             {
                 CreateAdminAccount();
             }
+        }
 
+        private void loginButton_Click(object sender, EventArgs e)
+        {
             string userName = userNameTextBox.Text;
             string password = passwordTextBox.Text;
 
@@ -67,9 +72,13 @@ namespace CarRental.Forms.Auth
 
             _mainForm.user = user;
 
+            _mainForm.DoAuthorization(user.Role == AppUserRole.Admin);
+
             _isExit = false;
             Close();
         }
+
+
 
         private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -100,6 +109,5 @@ namespace CarRental.Forms.Auth
             _context.AppUsers.Add(admin);
             _context.SaveChanges();
         }
-
     }
 }
