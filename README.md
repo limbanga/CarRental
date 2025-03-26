@@ -37,4 +37,5 @@
 3. Có thể import dữ liệu mẫu từ file rentalCar.sql
 4. Ấn nút run :3
 
-# Lưu ý
+# Demo
+Link video demo: [Link video demo](https://drive.google.com/file/d/1rL4p9SZfrcRLiDWL5ugG018qMnZMYFXr/view?usp=sharing)
